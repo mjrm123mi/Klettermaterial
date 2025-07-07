@@ -13,16 +13,18 @@ public class SeilController {
 
     @Autowired
     private SeilRepository seile; // Spring injiziert zur Laufzeit ein SeilRepo mit @Autowired. Also spring erzeig ein Objekt vom Typ SeilRepo.
-    /*
-    @GetMapping
-    public String hello() {
-        return "Hallo Kletterin! Hier kannst du dein Kletterequipment verwalten";
+
+    @GetMapping("/{id}")
+    public Seil getSeilById(@PathVariable ("id") long id){
+        return seile.findById(id).orElseThrow(IllegalArgumentException::new);
     }
-    */
-    @GetMapping
+
+    @GetMapping()
     public Iterable<Seil> getAllSeile() {
         return seile.findAll();
     }
+
+
 
     @PostMapping
     public long postNewSeil(@RequestBody Seil newSeil) {
