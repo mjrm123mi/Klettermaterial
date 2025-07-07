@@ -28,7 +28,6 @@ public class Seil {
     }
 
     public Seil(String hersteller, String modell, String typ, double durchmesser, int laengeInMetern, String herstellungsdatum, String ablaufdatum) {
-        this.id = id;
         this.hersteller = hersteller;
         this.modell = modell;
         this.typ = typ;
