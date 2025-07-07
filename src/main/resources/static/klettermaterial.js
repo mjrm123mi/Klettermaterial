@@ -1,5 +1,5 @@
 function postOneRandomSeil(){
-    const seil = {hersteller: "Petzl", modell: "DynamoXC", typ: "Einfachseil", durchmesser: 7.8, laengeInMetern: 100, herstellungsdatum: "01.01.2020", ablaufdatum: "01.01.2030"};
+    const seil = {name: "Petzl DynamoXC", herstellungsdatum: "01.01.2020", ablaufdatum: "01.01.2030", abnutzungspunkte: 0};
 
 $.ajax({
     url: "/seile",

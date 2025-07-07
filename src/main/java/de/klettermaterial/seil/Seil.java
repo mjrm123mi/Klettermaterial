@@ -4,21 +4,16 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
-import java.util.Date;
-
 @Entity
 public class Seil {
     @Id
     @GeneratedValue
     private Long id;
 
-    private String hersteller;
-    private String modell;
-    private String typ;
-    private double durchmesser;
-    private int laengeInMetern;
+    private String name;
     private String herstellungsdatum;
     private String ablaufdatum;
+    private int abnutzungspunkte;
 
 
     protected Seil() {
@@ -28,11 +23,7 @@ public class Seil {
     }
 
     public Seil(String hersteller, String modell, String typ, double durchmesser, int laengeInMetern, String herstellungsdatum, String ablaufdatum) {
-        this.hersteller = hersteller;
-        this.modell = modell;
-        this.typ = typ;
-        this.durchmesser = durchmesser;
-        this.laengeInMetern = laengeInMetern;
+        this.name = hersteller;
         this.herstellungsdatum = herstellungsdatum;
         this.ablaufdatum = ablaufdatum;
     }
@@ -45,28 +36,12 @@ public class Seil {
         this.id = id;
     }
 
-    public String getHersteller() {
-        return hersteller;
+    public String getName() {
+        return name;
     }
 
-    public void setHersteller(String hersteller) {
-        this.hersteller = hersteller;
-    }
-
-    public String getModell() {
-        return modell;
-    }
-
-    public void setModell(String modell) {
-        this.modell = modell;
-    }
-
-    public int getLaengeInMetern() {
-        return laengeInMetern;
-    }
-
-    public void setLaengeInMetern(int laengeInMetern) {
-        this.laengeInMetern = laengeInMetern;
+    public void setName(String hersteller) {
+        this.name = hersteller;
     }
 
     public String getHerstellungsdatum() {
@@ -83,21 +58,5 @@ public class Seil {
 
     public void setAblaufdatum(String ablaufdatum) {
         this.ablaufdatum = ablaufdatum;
-    }
-
-    public String getTyp() {
-        return typ;
-    }
-
-    public void setTyp(String typ) {
-        this.typ = typ;
-    }
-
-    public double getDurchmesser() {
-        return durchmesser;
-    }
-
-    public void setDurchmesser(double durchmesser) {
-        this.durchmesser = durchmesser;
     }
 }

@@ -3,10 +3,6 @@ package de.klettermaterial.seil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
 @RestController
 @RequestMapping("/seile")
 public class SeilController {
@@ -24,14 +20,13 @@ public class SeilController {
         return seile.findAll();
     }
 
-
-
     @PostMapping
     public long postNewSeil(@RequestBody Seil newSeil) {
         System.out.println(newSeil);
         seile.save(newSeil);
         return newSeil.getId();
     }
+
 
     /*@PostMapping
     public String hellantwort() {
