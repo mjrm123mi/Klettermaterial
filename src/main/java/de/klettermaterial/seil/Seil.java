@@ -22,10 +22,19 @@ public class Seil {
         // und Hibernate ist eine mögliche Implementaion davon. Und Spring verwendet Hibernate)
     }
 
-    public Seil(String hersteller, String modell, String typ, double durchmesser, int laengeInMetern, String herstellungsdatum, String ablaufdatum) {
-        this.name = hersteller;
+    public Seil(String name, String herstellungsdatum, String ablaufdatum, int abnutzungspunkte) {
+        this.name = name;
         this.herstellungsdatum = herstellungsdatum;
         this.ablaufdatum = ablaufdatum;
+        this.abnutzungspunkte = abnutzungspunkte;
+    }
+
+    public int getAbnutzungspunkte() {
+        return abnutzungspunkte;
+    }
+
+    public void setAbnutzungspunkte(int abnutzungspunkte) {
+        this.abnutzungspunkte = abnutzungspunkte;
     }
 
     public Long getId() {
@@ -60,3 +69,4 @@ public class Seil {
         this.ablaufdatum = ablaufdatum;
     }
 }
+

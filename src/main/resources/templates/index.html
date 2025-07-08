@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Klettermaterial</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../static/styles.css" />
+    <script type="text/javascript" src="../static/jquery-3.7.1.js"></script>
+    <script type="text/javascript" src="../static/klettermaterial.js" defer></script>
+</head>
+<body>
+
+<p> Hier wird eine Übersicht gebaut vom Kletterseilen</p>
+
+<p> Hier können Kletterseile gefiltert werden</p>
+<form>
+    <input type="text" name="senderFilter" th:value="${filter}">
+    <input type="submit">
+</form>
+<br />
+<br />
+
+<div th:each="seil : ${seile}">
+    <span th:text="${seil.abnutzungspunkte}"></span>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Herstellungsdatum</th>
+            <th>Ablaufdatum</th>
+            <th>Abnutzungspunkte</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="seil : ${seile}">
+            <td th:text="${seil.id}"></td>
+            <td th:text="${seil.name}"></td>
+            <td th:text="${seil.herstellungsdatum}"></td>
+            <td th:text="${seil.ablaufdatum}"></td>
+            <td th:text="${seil.abnutzungspunkte}"></td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>
