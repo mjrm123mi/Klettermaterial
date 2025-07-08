@@ -1,7 +1,10 @@
 package de.klettermaterial.seil;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import javax.sound.midi.Soundbank;
 
 @RestController
 @RequestMapping("/seile")
@@ -30,9 +33,17 @@ public class SeilController {
         return newSeil.getId();
     }
 
+//    //add
+//    @GetMapping("/add")
+//    public String addNewSeil(Model model){
+//        model.addAttribute("seil", new Seil());
+//        return "add-Seil";
+//    }
+
+
     //Endpunkt auf der Seite initdb wird diese Methode ausgeführt
     @GetMapping("/initdb")
-    public void initdb(){
+    public String initdb(){
         seilRepository.deleteAll();
         Seil s1 = new Seil("Petzl DynamoXC", "01.01.2020", "01.01.2030", 0);
         Seil s2 = new Seil("Edelrid Tosh", "01.01.2020", "01.01.2030", 0);
@@ -45,5 +56,7 @@ public class SeilController {
         seilRepository.save(s3);
         seilRepository.save(s4);
         seilRepository.save(s5);
+
+        return "Datenbank initalisiert";
     }
 }
