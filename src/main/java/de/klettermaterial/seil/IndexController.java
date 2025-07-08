@@ -10,9 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class IndexController {
     @Autowired
     private SeilRepository seilRepository;
+    @Autowired
+    private SeilController seilController;
 
     @GetMapping("/")
     public String index(Model model) {
+        seilController.initdb(); // hiermit wird initdb aufgerufen und die Datenbank inistalisiert
         Iterable<Seil> seile = seilRepository.findAll(); //Ergebnis von findAll() wird in Seile gespeichert
         model.addAttribute("seile", seile); //die Seile aus der Datenbank werden dem model hinzugefuegt
         return "index"; //damit wird Thymeleaf gesagt dass die HTML Datei angezeigt werden soll
