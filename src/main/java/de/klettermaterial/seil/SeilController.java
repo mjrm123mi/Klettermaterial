@@ -22,7 +22,7 @@ public class SeilController {
         return seilRepository.findAll();
     }
 
-//CREATE
+    //CREATE
     @PostMapping
     public long postNewSeil(@RequestBody Seil newSeil) {
         System.out.println(newSeil);
