@@ -22,7 +22,6 @@ public class SeilController {
         return seilRepository.findAll();
     }
 
-
 //CREATE
     @PostMapping
     public long postNewSeil(@RequestBody Seil newSeil) {
@@ -31,11 +30,6 @@ public class SeilController {
         return newSeil.getId();
     }
 
-    /*@PostMapping
-    public String hellantwort() {
-        return "Antwort";
-    }*/
-
     //Endpunkt auf der Seite initdb wird diese Methode ausgeführt
     @GetMapping("/initdb")
     public void initdb(){
@@ -43,8 +37,13 @@ public class SeilController {
         Seil s1 = new Seil("Petzl DynamoXC", "01.01.2020", "01.01.2030", 0);
         Seil s2 = new Seil("Edelrid Tosh", "01.01.2020", "01.01.2030", 0);
         Seil s3 = new Seil("Beal Slim", "01.01.2025", "01.01.2035", 0);
+        Seil s4 = new Seil("Mammut Zopa", "01.01.2025", "01.01.2035", 0);
+        Seil s5 = new Seil("Petzl Dry Rope", "01.01.2024", "01.01.2034", 0);
+
         seilRepository.save(s1);
         seilRepository.save(s2);
         seilRepository.save(s3);
+        seilRepository.save(s4);
+        seilRepository.save(s5);
     }
 }
