@@ -1,10 +1,14 @@
-package de.klettermaterial.seil;
+package de.klettermaterial.seil.repository;
 
+import de.klettermaterial.seil.material.Seil;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public interface SeilRepository extends CrudRepository<Seil, Long> {
+
+
+    //TODO: Liste statt Iterable returnen
 
 
     /* Methoden:

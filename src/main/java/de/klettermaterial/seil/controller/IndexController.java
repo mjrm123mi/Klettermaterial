@@ -1,10 +1,11 @@
-package de.klettermaterial.seil;
+package de.klettermaterial.seil.controller;
 
+import de.klettermaterial.seil.repository.SeilRepository;
+import de.klettermaterial.seil.material.Seil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 @Controller
 public class IndexController {
@@ -15,9 +16,9 @@ public class IndexController {
 
     @GetMapping("/")
     public String index(Model model) {
-        seilController.initdb(); // hiermit wird initdb aufgerufen und die Datenbank inistalisiert
-        Iterable<Seil> seile = seilRepository.findAll(); //Ergebnis von findAll() wird in Seile gespeichert
+        seilController.initdb();
+        Iterable<Seil> seile = seilRepository.findAll();
         model.addAttribute("seile", seile); //die Seile aus der Datenbank werden dem model hinzugefuegt
-        return "index"; //damit wird Thymeleaf gesagt dass die HTML Datei angezeigt werden soll
+        return "index";
     }
 }

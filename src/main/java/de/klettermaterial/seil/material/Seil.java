@@ -1,4 +1,4 @@
-package de.klettermaterial.seil;
+package de.klettermaterial.seil.material;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -16,7 +16,7 @@ public class Seil {
     private int abnutzungspunkte;
 
 
-    protected Seil() {
+    public Seil() {
         //required by Hibernate
         // (JPA ist die Spezifikation der Datenbankmagie
         // und Hibernate ist eine mögliche Implementaion davon. Und Spring verwendet Hibernate)

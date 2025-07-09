@@ -1,10 +1,10 @@
-package de.klettermaterial.seil;
+package de.klettermaterial.seil.controller;
 
+import de.klettermaterial.seil.repository.SeilRepository;
+import de.klettermaterial.seil.material.Seil;
+import de.klettermaterial.seil.services.SeilService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import javax.sound.midi.Soundbank;
 
 @RestController
 @RequestMapping("/seile")
@@ -12,6 +12,9 @@ public class SeilController {
 
     @Autowired
     private SeilRepository seilRepository; // Spring injiziert zur Laufzeit ein SeilRepo mit @Autowired. Also spring erzeig ein Objekt vom Typ SeilRepo.
+
+    @Autowired
+    private SeilService seilService;
 
     //readOne
     @GetMapping("/{id}")
@@ -22,7 +25,7 @@ public class SeilController {
     //readAll
     @GetMapping()
     public Iterable<Seil> getAllSeile() {
-        return seilRepository.findAll();
+        return seilService.getAlleSeile(); //seilservice aufrufen Und in seilservice fin
     }
 
     //CREATE

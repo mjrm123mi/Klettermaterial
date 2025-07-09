@@ -8,6 +8,7 @@ public class SeilApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SeilApplication.class, args);
+
 	}
 
 }
