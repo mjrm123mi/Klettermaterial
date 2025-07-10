@@ -50,4 +50,10 @@ public class IndexController {
         seilService.postNewSeil(newSeil);
         return "redirect:/";
     }
+
+    @PostMapping("/delete")
+    public String postDelete(@ModelAttribute String name) {
+        seilService.deleteByName(name);
+        return "redirect:/";
+    }
 }

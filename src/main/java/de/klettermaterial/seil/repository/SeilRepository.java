@@ -15,6 +15,9 @@ public interface SeilRepository extends CrudRepository<Seil, Long> {
 
     //TODO: Liste statt Iterable returnen
 
+    void deleteByName(String name);
+// deleteByName() Methode
+
 
     /* Methoden:
 

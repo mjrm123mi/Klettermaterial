@@ -102,4 +102,9 @@ public class SeilService {
     public Iterable<Seil> getAlleSeile() {
         return seilRepository.findAll();
     }
+
+
+    public void deleteByName(String name) {
+        seilRepository.deleteByName(name);
+    }
 }
