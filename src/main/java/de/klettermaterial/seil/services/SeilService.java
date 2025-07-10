@@ -13,6 +13,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
+/**
+ * Service-Klasse für die Logik.
+ */
 @Service
 public class SeilService {
 
@@ -22,12 +25,23 @@ public class SeilService {
         this.seilRepository = seilRepository;
     }
 
+    /**
+     * Gibt ein Seil anhand der ID zurück.
+     * @param id Seil-ID
+     * @return Gefundenes Seil
+     * @throws IllegalArgumentException falls kein Seil gefunden wurde
+     */
     //readOne
     @GetMapping("/{id}")
     public Seil getSeilById(@PathVariable("id") long id){
         return seilRepository.findById(id).orElseThrow(IllegalArgumentException::new);
     }
 
+    /**
+     * Speichert ein neues Seil in der Datenbank.
+     * @param newSeil Das zu speichernde Seil
+     * @return Die ID des gespeicherten Seils
+     */
     //CREATE
     @PostMapping
     public long postNewSeil(@RequestBody Seil newSeil) {
@@ -36,7 +50,10 @@ public class SeilService {
         return newSeil.getId();
     }
 
-    //Endpunkt auf der Seite initdb wird diese Methode ausgeführt
+    /**
+     * Initialisiert die Datenbank mit Beispiel-Seilen.
+     * @return "Datenbank initalisiert"
+     */
     @GetMapping("/initdb")
     public String initdb(){
         seilRepository.deleteAll();
@@ -55,21 +72,38 @@ public class SeilService {
         return "Datenbank initalisiert";
     }
 
+    /**
+     * Fügt ein Seil hinzu.
+     * @param seil Das hinzuzufügende Seil
+     */
     public void addSeil(Seil seil) {
         seilRepository.save(seil);
     }
 
+
+    /**
+     * Gibt die Anzahl aller Seile zurück.
+     * @return Anzahl der Seile
+     */
     public long numberOfSeile() {
         return seilRepository.count();
     }
 
+    /**
+     * Gibt eine Liste von Seilen eines übergebenen Herstellers zurück.
+     * @param hersteller Name des Herstellers
+     * @return Liste der Seile vom Hersteller
+     */
     public List<Seil> seileVomHersteller(String hersteller) {
         return StreamSupport.stream(seilRepository.findAll().spliterator(), false)
                 .filter(seil -> seil.getName().equals(hersteller))
                 .collect(Collectors.toList());
     }
 
-
+    /**
+     * Gibt alle Seile zurück.
+     * @return Iterable aller Seile
+     */
     public Iterable<Seil> getAlleSeile() {
         return seilRepository.findAll();
     }

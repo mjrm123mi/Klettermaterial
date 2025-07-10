@@ -4,6 +4,11 @@ import de.klettermaterial.seil.material.Seil;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+/**
+ * SeilRepository ist ein Interface für den Zugriff auf Seil Entitäten in der Datenbank.
+ * Es erbt vom CrudRepository und enthält somit die CRUD-Operationen sowie weitere
+ * Standartmethoden.
+ */
 @Repository
 public interface SeilRepository extends CrudRepository<Seil, Long> {
 

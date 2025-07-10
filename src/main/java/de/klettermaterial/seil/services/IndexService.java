@@ -8,6 +8,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+
+/**
+ * Die Klasse IndexService enthält die Logik von der Startseite (Index).
+ */
 @Service
 public class IndexService {
 
@@ -17,6 +21,11 @@ public class IndexService {
     @Autowired
     SeilController seilController;
 
+    /**
+     * Die Methode index fügt alle Seile dem model mit addAttribute hinzu und ruft die Startseite auf.
+     * @param model
+     * @return "index" und Spring weiß dann dass die index.html aufgerufen werden soll.
+     */
     @GetMapping("/")
     public String index(Model model) {
        // seilController.initdb();

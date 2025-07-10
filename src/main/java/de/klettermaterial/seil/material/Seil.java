@@ -3,9 +3,7 @@ package de.klettermaterial.seil.material;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-
 import java.time.LocalDate;
-import java.util.Date;
 
 /**
  * Repräsentiert ein Kletterseil mit Eigenschaften wie Name, Herstellungsdatum, Ablaufdatum und Abnutzungspunkten.
