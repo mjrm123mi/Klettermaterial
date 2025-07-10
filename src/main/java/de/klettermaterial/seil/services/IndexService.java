@@ -18,19 +18,15 @@ public class IndexService {
     @Autowired
     private SeilRepository seilRepository;
 
-    @Autowired
-    SeilController seilController;
-
     /**
      * Die Methode index fügt alle Seile dem model mit addAttribute hinzu und ruft die Startseite auf.
      * @param model
      * @return "index" und Spring weiß dann dass die index.html aufgerufen werden soll.
      */
-    @GetMapping("/")
     public String index(Model model) {
        // seilController.initdb();
         Iterable<Seil> seile = seilRepository.findAll();
-        model.addAttribute("seile", seile); //die Seile aus der Datenbank werden dem model hinzugefuegt
-        return "index";
+        model.addAttribute("seile", seile);
+        return "index"; //Thymeleaf weiß hiermit dass index.html aufgerfuen werden soll
     }
 }

@@ -37,10 +37,10 @@ public class SeilController {
     /**
      * Erstellt ein SeilObjekt und speichert es in der Datenbank.
      */
-    //CREATE
+    //CREATE und SAVE
     @PostMapping
-    public long postNewSeil(@RequestBody Seil newSeil) {
-        return seilService.postNewSeil(newSeil);
+    public void postNewSeil(@RequestBody Seil newSeil) {
+         seilService.postNewSeil(newSeil);
     }
 
     /**

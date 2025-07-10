@@ -3,6 +3,7 @@ package de.klettermaterial.seil.services;
 import de.klettermaterial.seil.controller.SeilController;
 import de.klettermaterial.seil.material.Seil;
 import de.klettermaterial.seil.repository.SeilRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,6 +22,9 @@ public class SeilService {
 
     private final SeilRepository seilRepository;
 
+    //Konstruktor Injektion weil Spring übrgibt automatisch ein Parameter an den Konstruktor
+    //Spring ruft den Konstruktor auf.
+    //Der Objektvaribale wird der Paramter zugewiesen.
     public SeilService(SeilRepository seilRepository) {
         this.seilRepository = seilRepository;
     }
@@ -32,8 +36,7 @@ public class SeilService {
      * @throws IllegalArgumentException falls kein Seil gefunden wurde
      */
     //readOne
-    @GetMapping("/{id}")
-    public Seil getSeilById(@PathVariable("id") long id){
+    public Seil getSeilById(long id){
         return seilRepository.findById(id).orElseThrow(IllegalArgumentException::new);
     }
 
@@ -42,19 +45,16 @@ public class SeilService {
      * @param newSeil Das zu speichernde Seil
      * @return Die ID des gespeicherten Seils
      */
-    //CREATE
-    @PostMapping
-    public long postNewSeil(@RequestBody Seil newSeil) {
+    //CREATE UND SAVE
+    public void postNewSeil(Seil newSeil) {
         System.out.println(newSeil);
         seilRepository.save(newSeil);
-        return newSeil.getId();
     }
 
     /**
      * Initialisiert die Datenbank mit Beispiel-Seilen.
      * @return "Datenbank initalisiert"
      */
-    @GetMapping("/initdb")
     public String initdb(){
         seilRepository.deleteAll();
         Seil s1 = new Seil("Petzl DynamoXC", LocalDate.of(2020,1,1), LocalDate.of(2030,1,1), 0);
@@ -88,6 +88,7 @@ public class SeilService {
     public long numberOfSeile() {
         return seilRepository.count();
     }
+
 
     /**
      * Gibt eine Liste von Seilen eines übergebenen Herstellers zurück.
