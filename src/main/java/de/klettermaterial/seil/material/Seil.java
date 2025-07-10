@@ -4,6 +4,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
+import java.time.LocalDate;
+import java.util.Date;
+
 @Entity
 public class Seil {
     @Id
@@ -11,8 +14,8 @@ public class Seil {
     private Long id;
 
     private String name;
-    private String herstellungsdatum;
-    private String ablaufdatum;
+    private LocalDate herstellungsdatum;
+    private LocalDate ablaufdatum;
     private int abnutzungspunkte;
 
 
@@ -22,7 +25,7 @@ public class Seil {
         // und Hibernate ist eine mögliche Implementaion davon. Und Spring verwendet Hibernate)
     }
 
-    public Seil(String name, String herstellungsdatum, String ablaufdatum, int abnutzungspunkte) {
+    public Seil(String name, LocalDate herstellungsdatum, LocalDate ablaufdatum, int abnutzungspunkte) {
         this.name = name;
         this.herstellungsdatum = herstellungsdatum;
         this.ablaufdatum = ablaufdatum;
@@ -53,19 +56,19 @@ public class Seil {
         this.name = hersteller;
     }
 
-    public String getHerstellungsdatum() {
+    public LocalDate getHerstellungsdatum() {
         return herstellungsdatum;
     }
 
-    public void setHerstellungsdatum(String herstellungsdatum) {
+    public void setHerstellungsdatum(LocalDate herstellungsdatum) {
         this.herstellungsdatum = herstellungsdatum;
     }
 
-    public String getAblaufdatum() {
+    public LocalDate getAblaufdatum() {
         return ablaufdatum;
     }
 
-    public void setAblaufdatum(String ablaufdatum) {
+    public void setAblaufdatum(LocalDate ablaufdatum) {
         this.ablaufdatum = ablaufdatum;
     }
 }

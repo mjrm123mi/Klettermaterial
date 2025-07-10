@@ -6,6 +6,8 @@ import de.klettermaterial.seil.services.SeilService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+
 @RestController
 @RequestMapping("/seile")
 public class SeilController {
@@ -48,11 +50,11 @@ public class SeilController {
     @GetMapping("/initdb")
     public String initdb(){
         seilRepository.deleteAll();
-        Seil s1 = new Seil("Petzl DynamoXC", "01.01.2020", "01.01.2030", 0);
-        Seil s2 = new Seil("Edelrid Tosh", "01.01.2020", "01.01.2030", 0);
-        Seil s3 = new Seil("Beal Slim", "01.01.2025", "01.01.2035", 0);
-        Seil s4 = new Seil("Mammut Zopa", "01.01.2025", "01.01.2035", 0);
-        Seil s5 = new Seil("Petzl Dry Rope", "01.01.2024", "01.01.2034", 0);
+        Seil s1 = new Seil("Petzl DynamoXC", LocalDate.of(2020,1,1), LocalDate.of(2030,1,1), 0);
+        Seil s2 = new Seil("Edelrid Tosh", LocalDate.of(2021,1,1), LocalDate.of(2031,1,1), 0);
+        Seil s3 = new Seil("Beal Slim", LocalDate.of(2025,1,1), LocalDate.of(2035,1,1), 0);
+        Seil s4 = new Seil("Mammut Zopa", LocalDate.of(2025,1,1), LocalDate.of(2035,1,1), 0);
+        Seil s5 = new Seil("Petzl Dry Rope", LocalDate.of(2020,1,1), LocalDate.of(2030,1,1), 0);
 
         seilRepository.save(s1);
         seilRepository.save(s2);
