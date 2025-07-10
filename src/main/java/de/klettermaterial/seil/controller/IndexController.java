@@ -9,7 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * Controller für die Startseite.
@@ -43,17 +43,21 @@ public class IndexController {
      * @param newSeil
      * @return "redirect:/"
      */
-
     @PostMapping("/add")
-    public String postNewSeil(@ModelAttribute Seil newSeil) {
+    public String neuesSeilHinzufugen(@ModelAttribute Seil newSeil) {
         //das Seil kommt aus einem @ModelAttribut und wird zu einem JavaObjekt
         seilService.postNewSeil(newSeil);
         return "redirect:/";
     }
 
+    /**
+     * Mit der postDelete Methode kann
+     * @param name
+     * @return "redirect:/"
+     */
     @PostMapping("/delete")
-    public String postDelete(@ModelAttribute String name) {
-        seilService.deleteByName(name);
+    public String seilLoeschen(@RequestParam("name") String name) {
+        indexService.deleteByName(name);
         return "redirect:/";
     }
 }

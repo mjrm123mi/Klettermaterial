@@ -2,6 +2,7 @@ package de.klettermaterial.seil.services;
 
 import de.klettermaterial.seil.material.Seil;
 import de.klettermaterial.seil.repository.SeilRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -25,7 +26,12 @@ public class IndexService {
        // seilController.initdb();
         Iterable<Seil> seile = seilRepository.findAll();
         model.addAttribute("seile", seile);
-        model.addAttribute("neuesSeil", new Seil()); //neu
+        model.addAttribute("neuesSeil", new Seil());
         return "index"; //Thymeleaf weiß hiermit dass index.html aufgerfuen werden soll
+    }
+
+    @Transactional
+    public void deleteByName(String name) {
+        seilRepository.deleteByName(name);
     }
 }
