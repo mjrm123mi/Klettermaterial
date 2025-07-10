@@ -1,14 +1,8 @@
 package de.klettermaterial.seil.services;
 
-import de.klettermaterial.seil.controller.SeilController;
 import de.klettermaterial.seil.material.Seil;
 import de.klettermaterial.seil.repository.SeilRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
