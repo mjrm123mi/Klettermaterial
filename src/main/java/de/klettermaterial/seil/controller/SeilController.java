@@ -5,6 +5,10 @@ import de.klettermaterial.seil.services.SeilService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * REST-Controller für Seil-bezogene Endpunkte.
+ * Leitet HTTP-Anfragen an den SeilService weiter.
+ */
 @RestController
 @RequestMapping("/seile")
 public class SeilController {
@@ -12,26 +16,36 @@ public class SeilController {
     @Autowired
     private SeilService seilService;
 
+    /**
+     * Gibt ein Seil anhand der ID zurück.
+     */
     //readOne
     @GetMapping("/{id}")
     public Seil getSeilById(@PathVariable ("id") long id){
         return seilService.getSeilById(id);
     }
 
+    /**
+     * Gibt alle Seile zurück.
+     */
     //readAll
     @GetMapping()
     public Iterable<Seil> getAllSeile() {
         return seilService.getAlleSeile(); //seilservice aufrufen Und in seilservice fin
     }
 
-    //richtig so???
+    /**
+     * Erstellt ein SeilObjekt und speichert es in der Datenbank.
+     */
     //CREATE
     @PostMapping
     public long postNewSeil(@RequestBody Seil newSeil) {
         return seilService.postNewSeil(newSeil);
     }
 
-    //seilService aufrufen und Datenbank initalisieren
+    /**
+     * SeilService wird aufgerufen und Datenbank initalisiert.
+     */
     @GetMapping("/initdb")
     public String initdb(){
         return seilService.initdb();

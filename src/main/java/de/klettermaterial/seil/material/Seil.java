@@ -7,8 +7,14 @@ import jakarta.persistence.Id;
 import java.time.LocalDate;
 import java.util.Date;
 
+/**
+ * Repräsentiert ein Kletterseil mit Eigenschaften wie Name, Herstellungsdatum, Ablaufdatum und Abnutzungspunkten.
+ */
 @Entity
 public class Seil {
+    /**
+     * Eindeutige ID des Seils (Primärschlüssel, wird automatisch generiert).
+     */
     @Id
     @GeneratedValue
     private Long id;
@@ -18,9 +24,10 @@ public class Seil {
     private LocalDate ablaufdatum;
     private int abnutzungspunkte;
 
-
+    /**
+     * Standard-Konstruktor (wird von Hibernate benötigt).
+     */
     public Seil() {
-        //required by Hibernate
         // (JPA ist die Spezifikation der Datenbankmagie
         // und Hibernate ist eine mögliche Implementaion davon. Und Spring verwendet Hibernate)
     }

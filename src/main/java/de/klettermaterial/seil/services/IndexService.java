@@ -19,7 +19,7 @@ public class IndexService {
 
     @GetMapping("/")
     public String index(Model model) {
-        seilController.initdb();
+       // seilController.initdb();
         Iterable<Seil> seile = seilRepository.findAll();
         model.addAttribute("seile", seile); //die Seile aus der Datenbank werden dem model hinzugefuegt
         return "index";
