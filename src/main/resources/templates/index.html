@@ -21,7 +21,6 @@
 <table>
     <thead>
         <tr>
-            <th>ID</th>
             <th>Name</th>
             <th>Herstellungsdatum</th>
             <th>Ablaufdatum</th>
@@ -30,7 +29,6 @@
     </thead>
     <tbody>
         <tr th:each="seil : ${seile}">
-            <td th:text="${seil.id}"></td>
             <td th:text="${seil.name}"></td>
             <td th:text="${seil.herstellungsdatum}"></td>
             <td th:text="${seil.ablaufdatum}"></td>
