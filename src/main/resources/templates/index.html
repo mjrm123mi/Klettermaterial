@@ -95,5 +95,17 @@
 </form>
 </div>
 
+<div class="form-container">
+    <p> Hier kannst du das Ablaufdatum manuell bearbeiten: </p>
+    <form th:action="@{/update-ablaufdatum}" method="post">
+        <label>Name:</label>
+        <input type="text" name="seilName" required />
+        <label>Neues Ablaufdatum</label>
+        <input type="date" name="newAblaufdatum" required />
+        <button type="submit">Datum ändern</button>
+    </form>
+    </form>
+</div>
+
 </body>
 </html>
