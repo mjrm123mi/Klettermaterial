@@ -38,7 +38,7 @@
     </tbody>
 </table>
 
-<p> Hier ein Seil hinzufügen: </p>
+<p> Hier kannst du ein Seil hinzufügen: </p>
 <form th:action="@{/add}" th:object="${neuesSeil}" method="post">
     <div>
         <label>Name</label>
@@ -60,7 +60,7 @@
 </form>
 
 
-<p> Hier den Namen des zu löschenden Seils eingeben: </p>
+<p> Hier kannst du ein Seil löschen. Gib den Namen dafür ein: </p>
 <form th:action="@{/delete}" method="post">
     <div>
         <label>Name</label>
@@ -68,6 +68,16 @@
     </div>
     <button type="submit">Löschen</button>
 </form>
+
+<p> Hier kannst du den Namen eines Seils verändern: </p>
+<form th:action="@{/update-name}" method="post">
+    <label>Alter Name</label>
+    <input type="text" name="oldName" required />
+    <label>Neuer Name</label>
+    <input type="text" name="newName" required />
+    <button type="submit">Namen ändern</button>
+</form>
+
 
 </body>
 </html>

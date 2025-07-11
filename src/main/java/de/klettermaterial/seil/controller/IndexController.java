@@ -56,8 +56,16 @@ public class IndexController {
      * @return "redirect:/"
      */
     @PostMapping("/delete")
-    public String seilLoeschen(@RequestParam("name") String name) {
+    public String seilLoeschen(@RequestParam("name") String name ) {
         indexService.deleteByName(name);
         return "redirect:/";
     }
+
+
+    @PostMapping("/update-name")
+    public String updateSeilName(@RequestParam String oldName, @RequestParam String newName) {
+        indexService.updateName(oldName, newName);
+        return "redirect:/";
+    }
+
 }

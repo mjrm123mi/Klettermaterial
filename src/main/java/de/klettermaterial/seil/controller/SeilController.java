@@ -24,7 +24,6 @@ public class SeilController {
     public Seil getSeilById(@PathVariable ("id") long id){
         return seilService.getSeilById(id);
     }
-
     /**
      * Gibt alle Seile zurück.
      */

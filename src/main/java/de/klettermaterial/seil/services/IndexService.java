@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
+import java.util.Optional;
+
 
 /**
  * Die Klasse IndexService enthält die Logik von der Startseite (Index).
@@ -34,4 +36,12 @@ public class IndexService {
     public void deleteByName(String name) {
         seilRepository.deleteByName(name);
     }
+
+    @Transactional
+    public void updateName(String oldName, String newName) {
+        Seil seil = seilRepository.findByName(oldName);
+            seil.setName(newName);
+            seilRepository.save(seil);
+    }
+
 }
