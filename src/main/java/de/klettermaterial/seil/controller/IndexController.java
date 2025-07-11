@@ -68,4 +68,10 @@ public class IndexController {
         return "redirect:/";
     }
 
+    @PostMapping("/update-abnutzungspunkte")
+    public String updateAbnutzungspunkte(@RequestParam String seilName, @RequestParam int newAbnutzungspunkte) {
+        indexService.updateAbnutzungspunkte(seilName, newAbnutzungspunkte);
+        return "redirect:/";
+    }
+
 }

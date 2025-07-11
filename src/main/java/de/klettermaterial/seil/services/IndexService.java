@@ -44,4 +44,13 @@ public class IndexService {
             seilRepository.save(seil);
     }
 
+
+    @Transactional
+    public void updateAbnutzungspunkte(String seilName, int newAbnutzungspunkte) {
+        Seil seil = seilRepository.findByName(seilName);
+        seil.setAbnutzungspunkte(newAbnutzungspunkte);
+        seilRepository.save(seil);
+    }
+
+
 }

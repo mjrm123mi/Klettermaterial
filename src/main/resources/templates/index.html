@@ -79,5 +79,16 @@
 </form>
 
 
+<p> Hier kannst du die Punkteanzahl eines Seils verändern: </p>
+<form th:action="@{/update-abnutzungspunkte}" method="post">
+    <label>Seilname:</label>
+    <input type="text" name="seilName" required />
+    <label>Neue Abnutzungspunkte</label>
+    <input type="number" name="newAbnutzungspunkte" required />
+    <button type="submit">Punkte ändern</button>
+</form>
+</form>
+
+
 </body>
 </html>
