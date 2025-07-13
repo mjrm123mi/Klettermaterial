@@ -58,8 +58,8 @@ public class Seil {
         return name;
     }
 
-    public void setName(String hersteller) {
-        this.name = hersteller;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public LocalDate getHerstellungsdatum() {

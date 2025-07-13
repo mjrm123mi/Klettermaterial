@@ -41,7 +41,7 @@ public class SeilService {
      */
     //CREATE UND SAVE
     public void postNewSeil(Seil newSeil) {
-        System.out.println(newSeil);
+       // System.out.println(newSeil);
         seilRepository.save(newSeil);
     }
 

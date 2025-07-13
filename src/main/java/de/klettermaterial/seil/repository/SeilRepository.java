@@ -1,6 +1,7 @@
 package de.klettermaterial.seil.repository;
 
 import de.klettermaterial.seil.material.Seil;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -12,7 +13,7 @@ import java.util.Optional;
  * Standartmethoden.
  */
 @Repository
-public interface SeilRepository extends CrudRepository<Seil, Long> {
+public interface SeilRepository extends JpaRepository<Seil, Long> {
 
 
     //TODO: Liste statt Iterable returnen

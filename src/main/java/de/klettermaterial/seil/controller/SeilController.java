@@ -20,6 +20,7 @@ public class SeilController {
      */
     @GetMapping("/initdb")
     public String initdb(){
+
         return seilService.initdb();
     }
 

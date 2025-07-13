@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 
 
@@ -27,9 +28,9 @@ public class IndexService {
      */
     public String index(Model model) {
        // seilController.initdb();
-        Iterable<Seil> seile = seilRepository.findAll();
+        List<Seil> seile = seilRepository.findAll();
         model.addAttribute("seile", seile);
-        model.addAttribute("neuesSeil", new Seil());
+        model.addAttribute("neuesSeil", new Seil()); //ein leeres Seil wird erstellt, das brauch ich später für create
         return "index"; //Thymeleaf weiß hiermit dass index.html aufgerfuen werden soll
     }
 
