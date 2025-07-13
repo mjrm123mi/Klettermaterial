@@ -41,8 +41,8 @@ public class IndexService {
     @Transactional
     public void updateName(String oldName, String newName) {
         Seil seil = seilRepository.findByName(oldName);
-            seil.setName(newName);
-            seilRepository.save(seil);
+        seil.setName(newName);
+        seilRepository.save(seil);
     }
 
 
