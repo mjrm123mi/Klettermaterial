@@ -1,6 +1,5 @@
 package de.klettermaterial.seil.material;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -27,8 +26,6 @@ public class Seil {
      * Standard-Konstruktor (wird von Hibernate benötigt).
      */
     public Seil() {
-        // (JPA ist die Spezifikation der Datenbankmagie
-        // und Hibernate ist eine mögliche Implementaion davon. Und Spring verwendet Hibernate)
     }
 
     public Seil(String name, LocalDate herstellungsdatum, LocalDate ablaufdatum, int abnutzungspunkte) {

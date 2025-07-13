@@ -4,9 +4,6 @@ import de.klettermaterial.seil.material.Seil;
 import de.klettermaterial.seil.repository.SeilRepository;
 import org.springframework.stereotype.Service;
 import java.time.LocalDate;
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 /**
  * Service-Klasse für die Logik.
@@ -21,17 +18,6 @@ public class SeilService {
     //Der Objektvaribale wird der Paramter zugewiesen.
     public SeilService(SeilRepository seilRepository) {
         this.seilRepository = seilRepository;
-    }
-
-    /**
-     * Gibt ein Seil anhand der ID zurück.
-     * @param id Seil-ID
-     * @return Gefundenes Seil
-     * @throws IllegalArgumentException falls kein Seil gefunden wurde
-     */
-    //readOne
-    public Seil getSeilById(long id){
-        return seilRepository.findById(id).orElseThrow(IllegalArgumentException::new);
     }
 
     /**
@@ -64,47 +50,5 @@ public class SeilService {
         seilRepository.save(s5);
 
         return "Datenbank initalisiert";
-    }
-
-    /**
-     * Fügt ein Seil hinzu.
-     * @param seil Das hinzuzufügende Seil
-     */
-    public void addSeil(Seil seil) {
-        seilRepository.save(seil);
-    }
-
-
-    /**
-     * Gibt die Anzahl aller Seile zurück.
-     * @return Anzahl der Seile
-     */
-    public long numberOfSeile() {
-        return seilRepository.count();
-    }
-
-
-    /**
-     * Gibt eine Liste von Seilen eines übergebenen Herstellers zurück.
-     * @param hersteller Name des Herstellers
-     * @return Liste der Seile vom Hersteller
-     */
-    public List<Seil> seileVomHersteller(String hersteller) {
-        return StreamSupport.stream(seilRepository.findAll().spliterator(), false)
-                .filter(seil -> seil.getName().equals(hersteller))
-                .collect(Collectors.toList());
-    }
-
-    /**
-     * Gibt alle Seile zurück.
-     * @return Iterable aller Seile
-     */
-    public Iterable<Seil> getAlleSeile() {
-        return seilRepository.findAll();
-    }
-
-
-    public void deleteByName(String name) {
-        seilRepository.deleteByName(name);
     }
 }

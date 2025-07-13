@@ -6,11 +6,8 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
-
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
-
 
 /**
  * Die Klasse IndexService enthält die Logik von der Startseite (Index).
@@ -45,7 +42,6 @@ public class IndexService {
         seil.setName(newName);
         seilRepository.save(seil);
     }
-
 
     @Transactional
     public void updateAbnutzungspunkte(String seilName, int newAbnutzungspunkte) {
