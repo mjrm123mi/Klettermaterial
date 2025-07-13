@@ -47,7 +47,7 @@ public class IndexController {
     }
 
     /**
-     * Mit der postDelete Methode kann
+     * Mit der seilLoeschen Methode kann ein Seil gelöscht werden.
      * @param name
      * @return "redirect:/"
      */
