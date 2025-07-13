@@ -17,33 +17,6 @@ public class SeilController {
     private SeilService seilService;
 
     /**
-     * Gibt ein Seil anhand der ID zurück.
-     */
-    //readOne
-    @GetMapping("/{id}")
-    public Seil getSeilById(@PathVariable ("id") long id){
-        return seilService.getSeilById(id);
-    }
-    /**
-     * Gibt alle Seile zurück.
-     */
-    //readAll
-    @GetMapping()
-    public Iterable<Seil> getAllSeile() {
-        return seilService.getAlleSeile(); //seilservice aufrufen Und in seilservice fin
-    }
-
-    /**
-     * Erstellt ein SeilObjekt und speichert es in der Datenbank.
-     */
-    //CREATE und SAVE
-    //METHODE KANN NACH TESTEN evtl GELÖSCHT WERDEN
-    @PostMapping
-    public void postNewSeil(@RequestBody Seil newSeil) {
-         seilService.postNewSeil(newSeil);
-    }
-
-    /**
      * SeilService wird aufgerufen und Datenbank initalisiert.
      */
     @GetMapping("/initdb")
