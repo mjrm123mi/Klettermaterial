@@ -42,7 +42,7 @@ public class IndexController {
     @PostMapping("/add")
     public String neuesSeilHinzufugen(@ModelAttribute Seil newSeil) {
         //das Seil kommt aus einem @ModelAttribut und wird zu einem JavaObjekt
-        seilService.postNewSeil(newSeil);
+        seilService.neuesSeilHinzufuegen(newSeil);
         return "redirect:/";
     }
 

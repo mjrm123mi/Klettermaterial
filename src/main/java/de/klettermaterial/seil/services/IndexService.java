@@ -27,7 +27,7 @@ public class IndexService {
        // seilController.initdb();
         List<Seil> seile = seilRepository.findAll();
         model.addAttribute("seile", seile);
-        model.addAttribute("neuesSeil", new Seil()); //ein leeres Seil wird erstellt, das brauch ich später für create
+        model.addAttribute("newSeil", new Seil()); //ein leeres Seil wird erstellt, das brauch ich später für create
         return "index"; //Thymeleaf weiß hiermit dass index.html aufgerfuen werden soll
     }
 

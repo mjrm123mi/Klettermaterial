@@ -31,7 +31,7 @@
 
 <div class="form-container">
 <p> Hier kannst du ein Seil hinzufügen: </p>
-<form th:action="@{/add}" th:object="${neuesSeil}" method="post">
+<form th:action="@{/add}" th:object="${newSeil}" method="post">
     <div>
         <label>Name</label>
         <input type="text" th:field="*{name}" required />

@@ -26,7 +26,7 @@ public class SeilService {
      * @return Die ID des gespeicherten Seils
      */
     //CREATE UND SAVE
-    public void postNewSeil(Seil newSeil) {
+    public void neuesSeilHinzufuegen(Seil newSeil) {
        // System.out.println(newSeil);
         seilRepository.save(newSeil);
     }
