@@ -1,6 +1,5 @@
 package de.klettermaterial.seil.controller;
 
-import de.klettermaterial.seil.material.Seil;
 import de.klettermaterial.seil.services.SeilService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

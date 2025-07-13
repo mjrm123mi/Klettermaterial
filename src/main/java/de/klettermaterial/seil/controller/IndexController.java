@@ -3,7 +3,6 @@ package de.klettermaterial.seil.controller;
 import de.klettermaterial.seil.material.Seil;
 import de.klettermaterial.seil.services.IndexService;
 import de.klettermaterial.seil.services.SeilService;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import java.time.LocalDate;
 
 /**
@@ -23,9 +21,6 @@ public class IndexController {
 
     @Autowired
     private IndexService indexService;
-
-    @Autowired
-    private SeilController seilController;
 
     @Autowired
     private SeilService seilService;
