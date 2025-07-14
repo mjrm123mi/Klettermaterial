@@ -75,4 +75,10 @@ public class IndexController {
        indexService.updateAblaufdatum(seilName, newAblaufdatum);
        return "redirect:/";
     }
+
+    @GetMapping("/loeschen")
+    public String loeschen() {
+
+        return "loeschen";
+    }
 }
