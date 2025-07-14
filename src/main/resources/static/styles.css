@@ -1,7 +1,7 @@
 .form-container {
     margin-bottom: 32px; /* Abstand nach unten */
     padding: 16px;       /* Innenabstand */
-    border: 1px solid #e4f21a; /* Optional: dezenter Rahmen */
-    border-radius: 8px;      /* Optional: abgerundete Ecken */
-    background: #f3e0e0;     /* Optional: dezenter Hintergrund */
+    border: 4px solid #e4f21a;
+    border-radius: 8px;      /* abgerundete Ecken */
+    background: #f3e0e0;     /* Hintergrund */
 }

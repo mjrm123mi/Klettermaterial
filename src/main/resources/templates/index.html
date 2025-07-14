@@ -4,6 +4,7 @@
     <title>Klettermaterial</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="/styles.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
 
 <body>
@@ -28,6 +29,7 @@
             <th>Herstellungsdatum</th>
             <th>Ablaufdatum</th>
             <th>Abnutzungspunkte</th>
+            <th>Löschen</th>
         </tr>
     </thead>
     <tbody>
@@ -36,6 +38,9 @@
             <td th:text="${seil.herstellungsdatum}"></td>
             <td th:text="${seil.ablaufdatum}"></td>
             <td th:text="${seil.abnutzungspunkte}"></td>
+            <td>
+                <i class="bi bi-trash"></i>
+            </td>
         </tr>
     </tbody>
 </table>
