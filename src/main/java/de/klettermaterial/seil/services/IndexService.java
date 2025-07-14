@@ -4,6 +4,7 @@ import de.klettermaterial.seil.material.Seil;
 import de.klettermaterial.seil.repository.SeilRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import java.time.LocalDate;
@@ -55,6 +56,11 @@ public class IndexService {
         Seil seil = seilRepository.findByName(seilName);
         seil.setAblaufdatum(newAblaufdatum);
         seilRepository.save(seil);
+    }
+
+    public String getNameById(long id) {
+        Seil seil = seilRepository.findById(id).orElseThrow(() -> new RuntimeException("Seil nicht gefunden"));
+        return seil.getName();
     }
 
 }

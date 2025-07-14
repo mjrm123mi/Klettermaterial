@@ -77,8 +77,9 @@ public class IndexController {
     }
 
     @GetMapping("/loeschen")
-    public String loeschen() {
-
+    public String loeschen(@RequestParam("id") long id, Model model) {
+        String name = indexService.getNameById(id);
+        model.addAttribute("loeschenName", name);
         return "loeschen";
     }
 }
