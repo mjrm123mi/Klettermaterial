@@ -3,6 +3,8 @@ package de.klettermaterial.seil.material;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.time.LocalDate;
 
 /**
@@ -18,7 +20,9 @@ public class Seil {
     private Long id;
 
     private String name;
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private LocalDate herstellungsdatum;
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private LocalDate ablaufdatum;
     private int abnutzungspunkte;
 

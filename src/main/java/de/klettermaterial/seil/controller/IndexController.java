@@ -57,29 +57,23 @@ public class IndexController {
         return "redirect:/";
     }
 
-
-    @PostMapping("/update-name")
-    public String updateSeilName(@RequestParam String oldName, @RequestParam String newName) {
-        indexService.updateName(oldName, newName);
-        return "redirect:/";
-    }
-
-    @PostMapping("/update-abnutzungspunkte")
-    public String updateAbnutzungspunkte(@RequestParam String seilName, @RequestParam int newAbnutzungspunkte) {
-        indexService.updateAbnutzungspunkte(seilName, newAbnutzungspunkte);
-        return "redirect:/";
-    }
-
-    @PostMapping("/update-ablaufdatum")
-    public String updateAblaufdatum(String seilName, LocalDate newAblaufdatum) {
-       indexService.updateAblaufdatum(seilName, newAblaufdatum);
-       return "redirect:/";
-    }
-
     @GetMapping("/loeschen")
     public String loeschen(@RequestParam("id") long id, Model model) {
         String name = indexService.getNameById(id);
         model.addAttribute("loeschenName", name);
         return "loeschen";
+    }
+
+    @GetMapping("/bearbeiten")
+    public String bearbeitenName(@RequestParam("id") long id, Model model) {
+      Seil seil = indexService.getSeilById(id);
+      model.addAttribute("seilBearbeiten", seil);
+      return "bearbeiten";
+    }
+
+    @PostMapping("/update")
+    public String seilBearbeiten(@ModelAttribute Seil newSeil) {
+        seilService.neuesSeilHinzufuegen(newSeil);
+        return "redirect:/";
     }
 }

@@ -3,6 +3,7 @@ package de.klettermaterial.seil.repository;
 import de.klettermaterial.seil.material.Seil;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+import java.util.List;
 
 /**
  * SeilRepository ist ein Interface für den Zugriff auf Seil Entitäten in der Datenbank.
@@ -13,8 +14,6 @@ import org.springframework.stereotype.Repository;
 public interface SeilRepository extends JpaRepository<Seil, Long> {
 
     void deleteByName(String name);
-
-    Seil findByName(String name);
 
 
     /* Methoden:

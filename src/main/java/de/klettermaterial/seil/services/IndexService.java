@@ -37,30 +37,16 @@ public class IndexService {
         seilRepository.deleteByName(name);
     }
 
-    @Transactional
-    public void updateName(String oldName, String newName) {
-        Seil seil = seilRepository.findByName(oldName);
-        seil.setName(newName);
-        seilRepository.save(seil);
-    }
 
-    @Transactional
-    public void updateAbnutzungspunkte(String seilName, int newAbnutzungspunkte) {
-        Seil seil = seilRepository.findByName(seilName);
-        seil.setAbnutzungspunkte(newAbnutzungspunkte);
-        seilRepository.save(seil);
-    }
-
-    @Transactional
-    public void updateAblaufdatum(String seilName, LocalDate newAblaufdatum) {
-        Seil seil = seilRepository.findByName(seilName);
-        seil.setAblaufdatum(newAblaufdatum);
-        seilRepository.save(seil);
-    }
 
     public String getNameById(long id) {
         Seil seil = seilRepository.findById(id).orElseThrow(() -> new RuntimeException("Seil nicht gefunden"));
         return seil.getName();
+    }
+
+    public Seil getSeilById(long id) {
+        Seil seil = seilRepository.findById(id).orElseThrow(() -> new RuntimeException("Seil nicht gefunden"));
+        return seil;
     }
 
 }

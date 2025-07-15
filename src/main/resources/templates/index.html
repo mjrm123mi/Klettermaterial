@@ -76,51 +76,6 @@
 </form>
 </div>
 
-<div class="form-container">
-<p> Hier kannst du ein Seil löschen. Gib den Namen dafür ein: </p>
-<form th:action="@{/delete}" method="post">
-
-        <label>Name</label>
-        <input type="text" name="name" required />
-
-    <button type="submit">Löschen</button>
-</form>
-</div>
-
-<div class="form-container">
-<p> Hier kannst du den Namen eines Seils verändern: </p>
-<form th:action="@{/update-name}" method="post">
-    <label>Alter Name</label>
-    <input type="text" name="oldName" required />
-    <label>Neuer Name</label>
-    <input type="text" name="newName" required />
-    <button type="submit">Namen ändern</button>
-</form>
-</div>
-
-<div class="form-container">
-<p> Hier kannst du die Punkteanzahl eines Seils verändern: </p>
-<form th:action="@{/update-abnutzungspunkte}" method="post">
-    <label>Seilname:</label>
-    <input type="text" name="seilName" required />
-    <label>Neue Abnutzungspunkte</label>
-    <input type="number" name="newAbnutzungspunkte" required />
-    <button type="submit">Punkte ändern</button>
-</form>
-</form>
-</div>
-
-<div class="form-container">
-    <p> Hier kannst du das Ablaufdatum manuell bearbeiten: </p>
-    <form th:action="@{/update-ablaufdatum}" method="post">
-        <label>Name:</label>
-        <input type="text" name="seilName" required />
-        <label>Neues Ablaufdatum</label>
-        <input type="date" name="newAblaufdatum" required />
-        <button type="submit">Datum ändern</button>
-    </form>
-    </form>
-</div>
 
 </body>
 </html>
