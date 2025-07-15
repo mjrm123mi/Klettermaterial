@@ -12,5 +12,12 @@
 <p th:text="'Willst du das Seil '+ ${loeschenName} + ' löschen?'">
 </p>
 
+<p> Wenn ja dann klick auf Löschen: </p>
+<form th:action="@{/delete(name=${loeschenName})}" method="post">
+  <button type="submit">Löschen</button>
+  <button type="button" onclick="location.href='/'">Abbrechen</button>
+</form>
+</div>
+
 </body>
 </html>
