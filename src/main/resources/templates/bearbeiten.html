@@ -1,0 +1,48 @@
+<!<!DOCTYPE html>
+<html lang="de">
+<head>
+  <title>Klettermaterial</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/styles.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+
+<p th:text="'Willst du das Seil '+ ${loeschenName} + ' löschen?'">
+</p>
+
+<p> Wenn ja dann klick auf Löschen: </p>
+<form th:action="@{/delete(name=${loeschenName})}" method="post">
+
+
+  <div class="form-container">
+    <p> Hier kannst du ein Seil ändern: </p>
+    <form th:action="@{/add}" th:object="${newSeil}" method="post">
+      <div>
+        <label>Name</label>
+        <input type="text" th:field="*{name}" required />
+      </div>
+      <div>
+        <label>Herstellungsdatum</label>
+        <input type="date" th:field="*{herstellungsdatum}" required />
+      </div>
+      <div>
+        <label>Ablaufdatum</label>
+        <input type="date" th:field="*{ablaufdatum}" required />
+      </div>
+      <div>
+        <label>Abnutzungspunkte</label>
+        <input type="number" th:field="*{abnutzungspunkte}" required />
+      </div>
+      <button type="submit">Speichern</button>
+    </form>
+  </div>
+
+  <button type="submit">Löschen</button>
+  <button type="button" onclick="location.href='/'">Abbrechen</button>
+</form>
+</div>
+
+</body>
+</html>
