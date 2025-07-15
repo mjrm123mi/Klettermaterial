@@ -21,6 +21,8 @@ public class IndexController {
     @Autowired
     private SeilService seilService;
 
+
+
     /**
      * Liefert die Startseite
      * @param model Model für das View-Template
@@ -28,7 +30,9 @@ public class IndexController {
      */
     @GetMapping("/")
     public String index(Model model) {
-        return indexService.index(model);
+        model.addAttribute("seile", indexService.getAllSeile());
+        model.addAttribute("newSeil", new Seil());
+        return "index";
     }
 
     /**
