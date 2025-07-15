@@ -72,8 +72,16 @@ public class IndexController {
     }
 
     @PostMapping("/update")
-    public String seilBearbeiten(@ModelAttribute Seil newSeil) {
-        seilService.neuesSeilHinzufuegen(newSeil);
+    public String seilBearbeiten(@ModelAttribute Seil seil) {
+        seilService.seilAktualisieren(seil);
         return "redirect:/";
+    }
+
+    /**
+     * SeilService wird aufgerufen und Datenbank initalisiert.
+     */
+    @GetMapping("/initdb")
+    public String initdb(){
+        return seilService.initdb();
     }
 }

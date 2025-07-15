@@ -49,6 +49,16 @@ public class SeilService {
         seilRepository.save(s4);
         seilRepository.save(s5);
 
-        return "Datenbank initalisiert";
+        return "redirect:/";
+    }
+
+    public void seilAktualisieren(Seil bearbeitetesSeil) {
+    Seil original = seilRepository.findById(bearbeitetesSeil.getId())
+                    .orElseThrow(() -> new RuntimeException("Seil nicht gefunden"));
+    original.setName(bearbeitetesSeil.getName());
+    original.setHerstellungsdatum(bearbeitetesSeil.getHerstellungsdatum());
+    original.setAblaufdatum(bearbeitetesSeil.getAblaufdatum());
+    original.setAbnutzungspunkte(bearbeitetesSeil.getAbnutzungspunkte());
+    seilRepository.save(original);
     }
 }

@@ -12,9 +12,12 @@
 
 <div class="form-container">
     <p> Hier kannst du ein Seil ändern: </p>
-  <p th:text="${seilBearbeiten.herstellungsdatum}">
-  </p>
+
+
     <form th:action="@{/update}" th:object="${seilBearbeiten}" method="post">
+
+        <input type="hidden" th:field="*{id}" />
+
         <div>
             <label>Name</label>
             <input type="text" th:field="*{name}" required/>

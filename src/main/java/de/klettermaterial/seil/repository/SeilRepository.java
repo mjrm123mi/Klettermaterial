@@ -3,6 +3,8 @@ package de.klettermaterial.seil.repository;
 import de.klettermaterial.seil.material.Seil;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -14,6 +16,8 @@ import java.util.List;
 public interface SeilRepository extends JpaRepository<Seil, Long> {
 
     void deleteByName(String name);
+
+
 
 
     /* Methoden:
