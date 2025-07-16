@@ -2,8 +2,10 @@ package de.klettermaterial.seil.services;
 
 import de.klettermaterial.seil.material.Seil;
 import de.klettermaterial.seil.repository.SeilRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 import java.time.LocalDate;
+import java.util.List;
 
 /**
  * Service-Klasse für die Logik.
@@ -56,5 +58,24 @@ public class SeilService {
     original.setAblaufdatum(bearbeitetesSeil.getAblaufdatum());
     original.setAbnutzungspunkte(bearbeitetesSeil.getAbnutzungspunkte());
     seilRepository.save(original);
+    }
+
+    public List<Seil> getAlleSeile() {
+        return seilRepository.findAllByOrderByAblaufdatum();
+    }
+
+    @Transactional
+    public void deleteByName(String name) {
+        seilRepository.deleteByName(name);
+    }
+
+    public String getNameById(long id) {
+        Seil seil = seilRepository.findById(id).orElseThrow(() -> new RuntimeException("Seil nicht gefunden"));
+        return seil.getName();
+    }
+
+    public Seil getSeilById(long id) {
+        Seil seil = seilRepository.findById(id).orElseThrow(() -> new RuntimeException("Seil nicht gefunden"));
+        return seil;
     }
 }

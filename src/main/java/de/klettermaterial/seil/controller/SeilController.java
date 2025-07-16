@@ -28,7 +28,7 @@ public class SeilController {
      */
     @GetMapping("/")
     public String index(Model model) {
-        model.addAttribute("seile", webService.getAlleSeile());
+        model.addAttribute("seile", seilService.getAlleSeile());
         model.addAttribute("newSeil", new Seil());
         return "index";
     }
@@ -52,20 +52,20 @@ public class SeilController {
      */
     @PostMapping("/delete")
     public String seilLoeschen(@RequestParam("name") String name ) {
-        webService.deleteByName(name);
+        seilService.deleteByName(name);
         return "redirect:/";
     }
 
     @GetMapping("/loeschen")
     public String loeschen(@RequestParam("id") long id, Model model) {
-        String name = webService.getNameById(id);
+        String name = seilService.getNameById(id);
         model.addAttribute("loeschenName", name);
         return "loeschen";
     }
 
     @GetMapping("/bearbeiten")
     public String bearbeitenName(@RequestParam("id") long id, Model model) {
-      Seil seil = webService.getSeilById(id);
+      Seil seil = seilService.getSeilById(id);
       model.addAttribute("seilBearbeiten", seil);
       return "bearbeiten";
     }
