@@ -66,6 +66,12 @@
         <label>Name</label>
         <input type="text" th:field="*{name}" required />
     </div>
+
+    <div th:if="${nameFehler}">
+        <p th:text="${nameFehler}" style="color: red;"></p>
+    </div>
+
+
     <div>
         <label>Herstellungsdatum</label>
         <input type="date" th:field="*{herstellungsdatum}" required />

@@ -37,6 +37,14 @@ public class SeilController {
      */
     @PostMapping("/add")
     public String neuesSeilHinzufugen(@ModelAttribute Seil newSeil, Model model) {
+
+        if (newSeil.getName().trim().isEmpty()) {
+            model.addAttribute("seile", seilService.getAlleSeile());
+            model.addAttribute("newSeil", newSeil);
+            model.addAttribute("nameFehler", "Der Name darf nicht leer oder nur aus Leerzeichen bestehen.");
+            return "index";
+        }
+
         if (newSeil.getHerstellungsdatum().isAfter(newSeil.getAblaufdatum())) {
             model.addAttribute("seile", seilService.getAlleSeile());
             model.addAttribute("newSeil", newSeil);
@@ -74,6 +82,14 @@ public class SeilController {
 
     @PostMapping("/update")
     public String seilBearbeiten(@ModelAttribute Seil seil, Model model) {
+        if (seil.getName().trim().isEmpty()) {
+            model.addAttribute("seile", seilService.getAlleSeile());
+            model.addAttribute("seilBearbeiten", seil);
+            model.addAttribute("nameFehler", "Der Name darf nicht leer oder nur aus Leerzeichen bestehen.");
+            return "bearbeiten";
+        }
+
+
         if (seil.getHerstellungsdatum().isAfter(seil.getAblaufdatum())) {
             model.addAttribute("seilBearbeiten", seil);
             model.addAttribute("datumFehler", "Das Ablaufdatum muss nach dem Herstellungsdatum liegen.");
