@@ -56,7 +56,10 @@
             <td th:text="${#temporals.format(seil.herstellungsdatum, 'yyyy-MM-dd')}"></td>
             <td th:text="${#temporals.format(seil.ablaufdatum, 'yyyy-MM-dd')}"></td>
 
-            <td th:text="${seil.abnutzungspunkte}"></td>
+            <td>
+                <span class="zahlenblock" th:text="${seil.abnutzungspunkte}"></span>
+            </td>
+
 
             <td>
                 <a th:href="@{/bearbeiten(id=${seil.id})}"> <i class="bi bi-wrench"></i> </a>

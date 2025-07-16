@@ -17,7 +17,8 @@ td, th {
     text-align: center;
 }
 
-/* rechtsbündig */
-td.abnutzung {
+td .zahlenblock {
+    display: inline-block;
+    min-width: 2ch;
     text-align: right;
 }
