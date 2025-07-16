@@ -78,6 +78,11 @@
         <label>Abnutzungspunkte</label>
         <input type="number" th:field="*{abnutzungspunkte}" required />
     </div>
+
+    <div th:if="${datumFehler}">
+        <p th:text="${datumFehler}" style="color: red;"></p>
+    </div>
+
     <button type="submit">Speichern</button>
 </form>
 </div>

@@ -36,7 +36,13 @@ public class SeilController {
      * @return "redirect:/"
      */
     @PostMapping("/add")
-    public String neuesSeilHinzufugen(@ModelAttribute Seil newSeil) {
+    public String neuesSeilHinzufugen(@ModelAttribute Seil newSeil, Model model) {
+        if (newSeil.getHerstellungsdatum().isAfter(newSeil.getAblaufdatum())) {
+            model.addAttribute("seile", seilService.getAlleSeile());
+            model.addAttribute("newSeil", newSeil);
+            model.addAttribute("datumFehler", "Das Ablaufdatum muss nach dem Herstellungsdatum sein.");
+            return "index";
+        }
         seilService.neuesSeilHinzufuegen(newSeil);
         return "redirect:/";
     }
@@ -67,7 +73,12 @@ public class SeilController {
     }
 
     @PostMapping("/update")
-    public String seilBearbeiten(@ModelAttribute Seil seil) {
+    public String seilBearbeiten(@ModelAttribute Seil seil, Model model) {
+        if (seil.getHerstellungsdatum().isAfter(seil.getAblaufdatum())) {
+            model.addAttribute("seilBearbeiten", seil);
+            model.addAttribute("datumFehler", "Das Ablaufdatum muss nach dem Herstellungsdatum liegen.");
+            return "bearbeiten";
+        }
         seilService.seilAktualisieren(seil);
         return "redirect:/";
     }
