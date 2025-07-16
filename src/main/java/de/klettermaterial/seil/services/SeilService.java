@@ -91,6 +91,15 @@ public class SeilService {
         }
     }
 
+    public List<Seil> getSeileNachJahr(Integer jahr) {
+        if (jahr == null) {
+            return seilRepository.findAllByOrderByAblaufdatum();
+        }
+        LocalDate start = LocalDate.of(jahr, 1, 1);
+        LocalDate end = LocalDate.of(jahr, 12, 31);
+        return seilRepository.findByHerstellungsdatumBetweenOrderByAblaufdatum(start, end);
+    }
+
 
 
 }

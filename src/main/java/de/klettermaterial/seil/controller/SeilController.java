@@ -30,6 +30,15 @@ public class SeilController {
         return "index";
     }
 
+    @GetMapping("/filterByJahr")
+    public String filterByJahr(@RequestParam(value = "jahrFilter", required = false) Integer jahr, Model model) {
+        model.addAttribute("seile", seilService.getSeileNachJahr(jahr));
+        model.addAttribute("newSeil", new Seil());
+        model.addAttribute("jahrFilter", jahr);
+        return "index";
+    }
+
+
     /**
      * Der Methode postNewSeil wird ein Seil Objekt übergeben und ein neues Seil wird erstellt.
      * Danach wird die Seite neu geladen.

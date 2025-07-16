@@ -22,6 +22,7 @@ public interface SeilRepository extends JpaRepository<Seil, Long> {
 
     List<Seil> findByNameContainingIgnoreCaseOrderByAblaufdatum(String name);
 
+    List<Seil> findByHerstellungsdatumBetweenOrderByAblaufdatum(LocalDate start, LocalDate end);
 
     /* Methoden:
 
