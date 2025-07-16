@@ -24,6 +24,16 @@
 </div>
 
 <div class="form-container">
+    <p> Hier kannst du Kletterseile nach Name oder Datum filtern:</p>
+    <form>
+        <input type="text" name="senderFilter" th:value="${filter}">
+        <input type="submit">
+    </form>
+</div>
+
+
+
+<div class="form-container">
 <p> Hier sind alle Kletterseile: </p>
 <table>
     <thead>
@@ -43,8 +53,9 @@
                 <span th:text="${seil.name}"></span>
                 <span th:if="${seil.abgelaufen}"></span>
 
-            <td th:text="${seil.herstellungsdatum}"></td>
-            <td th:text="${seil.ablaufdatum}"></td>
+            <td th:text="${#temporals.format(seil.herstellungsdatum, 'yyyy-MM-dd')}"></td>
+            <td th:text="${#temporals.format(seil.ablaufdatum, 'yyyy-MM-dd')}"></td>
+
             <td th:text="${seil.abnutzungspunkte}"></td>
             <td>
 
@@ -74,11 +85,11 @@
 
     <div>
         <label>Herstellungsdatum</label>
-        <input type="date" th:field="*{herstellungsdatum}" required />
+        <input type="date" th:field="*{herstellungsdatum}" required min="1900-01-01"/>
     </div>
     <div>
         <label>Ablaufdatum</label>
-        <input type="date" th:field="*{ablaufdatum}" required />
+        <input type="date" th:field="*{ablaufdatum}" required min="1900-01-02"/>
     </div>
     <div>
         <label>Abnutzungspunkte</label>
