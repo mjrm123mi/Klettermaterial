@@ -39,7 +39,7 @@ public class SeilService {
         Seil s1 = new Seil("Petzl Dyno", LocalDate.of(2020,1,1), LocalDate.of(2029,1,1), 10);
         Seil s2 = new Seil("Edelrid Tosh", LocalDate.of(2021,1,1), LocalDate.of(2031,1,1), 5);
         Seil s3 = new Seil("Beal Slim", LocalDate.of(2025,1,1), LocalDate.of(2035,1,1), 0);
-        Seil s4 = new Seil("Mammut", LocalDate.of(2025,1,1), LocalDate.of(2035,1,1), 0);
+        Seil s4 = new Seil("Mammut", LocalDate.of(2025,1,1), LocalDate.of(2034,1,1), 12);
         Seil s5 = new Seil("Petzl Dry", LocalDate.of(2010,1,1), LocalDate.of(2020,1,1), 0);
         seilRepository.save(s1);
         seilRepository.save(s2);
