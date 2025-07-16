@@ -18,6 +18,7 @@ public interface SeilRepository extends JpaRepository<Seil, Long> {
     void deleteByName(String name);
 
 
+    List<Seil> findAllByOrderByAblaufdatum();
 
 
     /* Methoden:

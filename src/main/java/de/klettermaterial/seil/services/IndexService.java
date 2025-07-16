@@ -17,7 +17,7 @@ public class IndexService {
     private SeilRepository seilRepository;
 
     public List<Seil> getAlleSeile() {
-        return seilRepository.findAll();
+        return seilRepository.findAllByOrderByAblaufdatum();
     }
 
     @Transactional
