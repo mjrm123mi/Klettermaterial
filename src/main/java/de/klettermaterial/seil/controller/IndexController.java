@@ -30,7 +30,7 @@ public class IndexController {
      */
     @GetMapping("/")
     public String index(Model model) {
-        model.addAttribute("seile", indexService.getAllSeile());
+        model.addAttribute("seile", indexService.getAlleSeile());
         model.addAttribute("newSeil", new Seil());
         return "index";
     }

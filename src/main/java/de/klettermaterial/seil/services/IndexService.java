@@ -5,7 +5,7 @@ import de.klettermaterial.seil.repository.SeilRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
+
 import java.util.List;
 
 /**
@@ -17,7 +17,7 @@ public class IndexService {
     @Autowired
     private SeilRepository seilRepository;
 
-    public List<Seil> getAllSeile() {
+    public List<Seil> getAlleSeile() {
         return seilRepository.findAll();
     }
 
