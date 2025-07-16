@@ -24,14 +24,20 @@
 </div>
 
 <div class="form-container">
-    <p> Hier kannst du Kletterseile nach Name oder Datum filtern:</p>
+    <p> Hier kannst du Kletterseile nach Name filtern:</p>
     <form>
         <input type="text" name="senderFilter" th:value="${filter}">
         <input type="submit">
     </form>
 </div>
 
-
+<div class="form-container">
+    <p> Hier kannst du Kletterseile nach Herstellungsjahr filtern:</p>
+    <form>
+        <input type="number" name="jahrFilter" min="1900" max="2200" th:value="${jahrFilter}">
+        <input type="submit" value="Filtern">
+    </form>
+</div>
 
 <div class="form-container">
 <p> Hier sind alle Kletterseile: </p>

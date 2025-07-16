@@ -82,4 +82,15 @@ public class SeilService {
         Seil seil = seilRepository.findById(id).orElseThrow(() -> new RuntimeException("Seil nicht gefunden"));
         return seil;
     }
+
+    public List<Seil> getSeileGefiltert(String nameFilter) {
+        if (nameFilter == null || nameFilter.trim().isEmpty()) {
+            return seilRepository.findAllByOrderByAblaufdatum();
+        } else {
+            return seilRepository.findByNameContainingIgnoreCaseOrderByAblaufdatum(nameFilter.trim());
+        }
+    }
+
+
+
 }
