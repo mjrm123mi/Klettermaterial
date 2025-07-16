@@ -42,8 +42,9 @@
             <th>Herstellungsdatum</th>
             <th>Ablaufdatum</th>
             <th>Abnutzungspunkte</th>
-            <th>Löschen</th>
+
             <th>Bearbeiten</th>
+            <th>Löschen</th>
         </tr>
     </thead>
     <tbody>
@@ -57,14 +58,15 @@
             <td th:text="${#temporals.format(seil.ablaufdatum, 'yyyy-MM-dd')}"></td>
 
             <td th:text="${seil.abnutzungspunkte}"></td>
-            <td>
-
-                <a th:href="@{/loeschen(id=${seil.id})}"> <i class="bi bi-trash"></i> </a>
-            </td>
 
             <td>
                 <a th:href="@{/bearbeiten(id=${seil.id})}"> <i class="bi bi-wrench"></i> </a>
             </td>
+
+            <td>
+                <a th:href="@{/loeschen(id=${seil.id})}"> <i class="bi bi-trash"></i> </a>
+            </td>
+
         </tr>
     </tbody>
 </table>
