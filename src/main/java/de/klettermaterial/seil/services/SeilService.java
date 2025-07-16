@@ -25,7 +25,6 @@ public class SeilService {
     /**
      * Speichert ein neues Seil in der Datenbank.
      * @param newSeil Das zu speichernde Seil
-     * @return Die ID des gespeicherten Seils
      */
     public void neuesSeilHinzufuegen(Seil newSeil) {
         seilRepository.save(newSeil);
@@ -33,7 +32,7 @@ public class SeilService {
 
     /**
      * Initialisiert die Datenbank mit Beispiel-Seilen.
-     * @return "Datenbank initalisiert"
+     * @return "redirect:/"
      */
     public String initdb(){
         seilRepository.deleteAll();
@@ -50,6 +49,10 @@ public class SeilService {
         return "redirect:/";
     }
 
+    /**
+     * Aktualisiert ein seil mit neuen Werten.
+     * @param bearbeitetesSeil das bearbeitete Seil-Objekt mit neuen Werten
+     */
     public void seilAktualisieren(Seil bearbeitetesSeil) {
     Seil original = seilRepository.findById(bearbeitetesSeil.getId())
                     .orElseThrow(() -> new RuntimeException("Seil nicht gefunden"));
@@ -63,6 +66,7 @@ public class SeilService {
     public List<Seil> getAlleSeile() {
         return seilRepository.findAllByOrderByAblaufdatum();
     }
+
 
     @Transactional
     public void deleteByName(String name) {

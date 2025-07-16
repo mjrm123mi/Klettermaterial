@@ -12,9 +12,7 @@
 <div class="form-container">
     <p> Datenbank mit Beispieldaten befuellen:</p>
     <form>   <button type="button" onclick="location.href='/initdb'">befuellen</button> </form>
-
 </div>
-
 
 <div class="form-container">
     <p> Info: </p>
@@ -23,10 +21,7 @@
         Ein schwerer Sturz entspricht 1 Punkt.
         Abgelaufene Seile werden rot markiert und sollten nach Ablaufdatum nicht zum Klettern weiterverwendet werden.
     </p>
-
-
 </div>
-
 
 <div class="form-container">
 <p> Hier sind alle Kletterseile: </p>
@@ -52,14 +47,13 @@
             <td th:text="${seil.ablaufdatum}"></td>
             <td th:text="${seil.abnutzungspunkte}"></td>
             <td>
+
                 <a th:href="@{/loeschen(id=${seil.id})}"> <i class="bi bi-trash"></i> </a>
             </td>
 
             <td>
                 <a th:href="@{/bearbeiten(id=${seil.id})}"> <i class="bi bi-wrench"></i> </a>
             </td>
-
-
         </tr>
     </tbody>
 </table>
