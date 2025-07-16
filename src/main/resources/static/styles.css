@@ -3,5 +3,11 @@
     padding: 16px;       /* Innenabstand */
     border: 4px solid #e4f21a;
     border-radius: 8px;      /* abgerundete Ecken */
-    background: #f3e0e0;     /* Hintergrund */
+    background: #a9eba2;     /* Hintergrund */
+}
+
+.gewarnt {
+    background-color: #ffe5e5; /* zartes Rot */
+    color: #a70000;            /* dunkler Text */
+    font-weight: bold;
 }

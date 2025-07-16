@@ -21,6 +21,7 @@
     <p> Ein Seil darf maximal 10 Jahre genutzt werden.
         Bei 10 Abnutzungspunkten wird 1 Jahr Lebensdauer vom Seil abgezogen.
         Ein schwerer Sturz entspricht 1 Punkt.
+        Abgelaufene Seile werden rot markiert und sollten nach Ablaufdatum nicht zum Klettern weiterverwendet werden.
     </p>
 
 
@@ -41,7 +42,13 @@
         </tr>
     </thead>
     <tbody>
-        <tr th:each="seil : ${seile}">
+        <tr th:each="seil : ${seile}"
+            th:classappend="${seil.abgelaufen} ? 'gewarnt' : ''">
+            <td>
+                <span th:text="${seil.name}"></span>
+                <span th:if="${seil.abgelaufen}">
+                       </span>
+
             <td th:text="${seil.name}"></td>
             <td th:text="${seil.herstellungsdatum}"></td>
             <td th:text="${seil.ablaufdatum}"></td>

@@ -78,5 +78,14 @@ public class Seil {
     public void setAblaufdatum(LocalDate ablaufdatum) {
         this.ablaufdatum = ablaufdatum;
     }
+
+    /**
+     * Methode liefert ein true zurück wenn das Ablaufdatum heute ist oder in der Vergangenheit.
+     * @return
+     */
+    public boolean isAbgelaufen() {
+        return ablaufdatum != null && !ablaufdatum.isAfter(LocalDate.now());
+    }
+
 }
 
