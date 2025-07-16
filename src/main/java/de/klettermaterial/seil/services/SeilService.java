@@ -25,9 +25,7 @@ public class SeilService {
      * @param newSeil Das zu speichernde Seil
      * @return Die ID des gespeicherten Seils
      */
-    //CREATE UND SAVE
     public void neuesSeilHinzufuegen(Seil newSeil) {
-       // System.out.println(newSeil);
         seilRepository.save(newSeil);
     }
 
@@ -42,13 +40,11 @@ public class SeilService {
         Seil s3 = new Seil("Beal Slim", LocalDate.of(2025,1,1), LocalDate.of(2035,1,1), 0);
         Seil s4 = new Seil("Mammut", LocalDate.of(2025,1,1), LocalDate.of(2035,1,1), 0);
         Seil s5 = new Seil("Petzl Dry", LocalDate.of(2025,1,1), LocalDate.of(2035,1,1), 0);
-
         seilRepository.save(s1);
         seilRepository.save(s2);
         seilRepository.save(s3);
         seilRepository.save(s4);
         seilRepository.save(s5);
-
         return "redirect:/";
     }
 

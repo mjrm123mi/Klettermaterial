@@ -5,7 +5,6 @@ import de.klettermaterial.seil.repository.SeilRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 /**
@@ -25,8 +24,6 @@ public class IndexService {
     public void deleteByName(String name) {
         seilRepository.deleteByName(name);
     }
-
-
 
     public String getNameById(long id) {
         Seil seil = seilRepository.findById(id).orElseThrow(() -> new RuntimeException("Seil nicht gefunden"));
