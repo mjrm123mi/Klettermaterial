@@ -11,3 +11,13 @@
     color: #a70000;
     font-weight: bold;
 }
+
+/*mittig */
+td, th {
+    text-align: center;
+}
+
+/* rechtsbündig */
+td.abnutzung {
+    text-align: right;
+}
