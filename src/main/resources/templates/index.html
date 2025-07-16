@@ -46,10 +46,8 @@
             th:classappend="${seil.abgelaufen} ? 'gewarnt' : ''">
             <td>
                 <span th:text="${seil.name}"></span>
-                <span th:if="${seil.abgelaufen}">
-                       </span>
+                <span th:if="${seil.abgelaufen}"></span>
 
-            <td th:text="${seil.name}"></td>
             <td th:text="${seil.herstellungsdatum}"></td>
             <td th:text="${seil.ablaufdatum}"></td>
             <td th:text="${seil.abnutzungspunkte}"></td>

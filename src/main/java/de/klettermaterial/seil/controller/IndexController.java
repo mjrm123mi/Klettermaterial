@@ -21,8 +21,6 @@ public class IndexController {
     @Autowired
     private SeilService seilService;
 
-
-
     /**
      * Liefert die Startseite
      * @param model Model für das View-Template
@@ -43,7 +41,6 @@ public class IndexController {
      */
     @PostMapping("/add")
     public String neuesSeilHinzufugen(@ModelAttribute Seil newSeil) {
-        //das Seil kommt aus einem @ModelAttribut und wird zu einem JavaObjekt
         seilService.neuesSeilHinzufuegen(newSeil);
         return "redirect:/";
     }

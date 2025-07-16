@@ -8,7 +8,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 import java.time.LocalDate;
 
 /**
- * Repräsentiert ein Kletterseil mit Eigenschaften wie Name, Herstellungsdatum, Ablaufdatum und Abnutzungspunkten.
+ * Repräsentiert ein Kletterseil mit Eigenschaften wie Name,
+ * Herstellungsdatum, Ablaufdatum und Abnutzungspunkten.
  */
 @Entity
 public class Seil {
