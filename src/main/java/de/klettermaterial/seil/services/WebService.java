@@ -11,7 +11,7 @@ import java.util.List;
  * Die Klasse IndexService enthält die Logik von der Startseite (Index).
  */
 @Service
-public class IndexService {
+public class WebService {
 
     @Autowired
     private SeilRepository seilRepository;

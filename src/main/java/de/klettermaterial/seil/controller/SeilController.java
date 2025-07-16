@@ -1,7 +1,7 @@
 package de.klettermaterial.seil.controller;
 
 import de.klettermaterial.seil.material.Seil;
-import de.klettermaterial.seil.services.IndexService;
+import de.klettermaterial.seil.services.WebService;
 import de.klettermaterial.seil.services.SeilService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.*;
  * Leitet Anfragen an den IndexService weiter.
  */
 @Controller
-public class IndexController {
+public class SeilController {
 
     @Autowired
-    private IndexService indexService;
+    private WebService webService;
 
     @Autowired
     private SeilService seilService;
@@ -28,7 +28,7 @@ public class IndexController {
      */
     @GetMapping("/")
     public String index(Model model) {
-        model.addAttribute("seile", indexService.getAlleSeile());
+        model.addAttribute("seile", webService.getAlleSeile());
         model.addAttribute("newSeil", new Seil());
         return "index";
     }
@@ -52,20 +52,20 @@ public class IndexController {
      */
     @PostMapping("/delete")
     public String seilLoeschen(@RequestParam("name") String name ) {
-        indexService.deleteByName(name);
+        webService.deleteByName(name);
         return "redirect:/";
     }
 
     @GetMapping("/loeschen")
     public String loeschen(@RequestParam("id") long id, Model model) {
-        String name = indexService.getNameById(id);
+        String name = webService.getNameById(id);
         model.addAttribute("loeschenName", name);
         return "loeschen";
     }
 
     @GetMapping("/bearbeiten")
     public String bearbeitenName(@RequestParam("id") long id, Model model) {
-      Seil seil = indexService.getSeilById(id);
+      Seil seil = webService.getSeilById(id);
       model.addAttribute("seilBearbeiten", seil);
       return "bearbeiten";
     }
