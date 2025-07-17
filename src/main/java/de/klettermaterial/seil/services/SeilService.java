@@ -84,7 +84,7 @@ public class SeilService {
     }
 
     public List<Seil> getSeileGefiltert(String nameFilter) {
-        if (nameFilter == null || nameFilter.trim().isEmpty()) {
+        if (nameFilter == null) {
             return seilRepository.findAllByOrderByAblaufdatum();
         } else {
             return seilRepository.findByNameContainingIgnoreCaseOrderByAblaufdatum(nameFilter.trim());
