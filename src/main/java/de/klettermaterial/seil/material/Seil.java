@@ -20,10 +20,13 @@ public class Seil {
     private Long id;
 
     private String name;
+
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private LocalDate herstellungsdatum;
+
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private LocalDate ablaufdatum;
+
     private int abnutzungspunkte;
 
     /**

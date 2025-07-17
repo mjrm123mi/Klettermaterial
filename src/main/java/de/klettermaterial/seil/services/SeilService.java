@@ -4,11 +4,8 @@ import de.klettermaterial.seil.material.Seil;
 import de.klettermaterial.seil.repository.SeilRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
-
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * Service-Klasse für die Logik.
@@ -18,25 +15,21 @@ public class SeilService {
 
     private final SeilRepository seilRepository;
 
-    //Konstruktor Injektion weil Spring übrgibt automatisch ein Parameter an den Konstruktor
-    //Spring ruft den Konstruktor auf.
-    //Der Objektvaribale wird der Paramter zugewiesen.
     public SeilService(SeilRepository seilRepository) {
         this.seilRepository = seilRepository;
     }
 
     /**
      * Speichert ein neues Seil in der Datenbank.
-     *
      * @param newSeil Das zu speichernde Seil
      */
     public void neuesSeilHinzufuegen(Seil newSeil) {
+
         seilRepository.save(newSeil);
     }
 
     /**
      * Initialisiert die Datenbank mit Beispiel-Seilen.
-     *
      * @return "redirect:/"
      */
     public String initdb() {
@@ -56,7 +49,6 @@ public class SeilService {
 
     /**
      * Aktualisiert ein seil mit neuen Werten.
-     *
      * @param bearbeitetesSeil das bearbeitete Seil-Objekt mit neuen Werten
      */
     public void seilAktualisieren(Seil bearbeitetesSeil) {
@@ -72,7 +64,6 @@ public class SeilService {
     public List<Seil> getAlleSeile() {
         return seilRepository.findAllByOrderByAblaufdatum();
     }
-
 
     @Transactional
     public void deleteByName(String name) {
@@ -103,5 +94,4 @@ public class SeilService {
         }
        return seile;
     }
-
 }

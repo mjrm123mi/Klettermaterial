@@ -34,7 +34,6 @@ public class SeilController {
         return "index";
     }
 
-
     /**
      * Der Methode postNewSeil wird ein Seil Objekt übergeben und ein neues Seil wird erstellt.
      * Danach wird die Seite neu geladen.
@@ -46,7 +45,7 @@ public class SeilController {
         if (newSeil.getName().trim().isEmpty()) {
             model.addAttribute("seile", seilService.getAlleSeile());
             model.addAttribute("newSeil", newSeil);
-            model.addAttribute("nameFehler", "Der Name darf nicht leer oder nur aus Leerzeichen bestehen.");
+            model.addAttribute("seilNameFehler", "Der Name darf nicht leer oder nur aus Leerzeichen bestehen.");
             return "index";
         }
         if (newSeil.getHerstellungsdatum().isAfter(newSeil.getAblaufdatum())) {
