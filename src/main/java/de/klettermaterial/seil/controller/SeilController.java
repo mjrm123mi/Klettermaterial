@@ -23,7 +23,7 @@ public class SeilController {
      * @return Name des View-Templates ("index")
      */
     @GetMapping("/")
-    public String index(@RequestParam(value = "senderFilter", required = false) String filter, Model model) {
+    public String index(@RequestParam(value = "nameFilter", required = false) String filter, Model model) {
         model.addAttribute("seile", seilService.getSeileGefiltert(filter));
         model.addAttribute("newSeil", new Seil());
         model.addAttribute("filter", filter);
