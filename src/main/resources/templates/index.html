@@ -27,7 +27,7 @@
     <p> Hier kannst du Kletterseile nach Name filtern:</p>
     <form>
         <input type="text" name="nameFilter" th:value="${filter}">
-        <input type="submit">
+        <button type="submit">Filtern</button>
     </form>
 </div>
 
@@ -35,7 +35,7 @@
     <p> Hier kannst du Kletterseile nach Herstellungsjahr filtern:</p>
     <form action="/filterByJahr" method="get">
         <input type="number" name="jahrFilter" min="1900" max="2200" th:value="${jahrFilter}">
-        <input type="submit" value="Filtern">
+        <button type="submit">Filtern</button>
     </form>
 </div>
 

@@ -23,18 +23,14 @@ public class SeilController {
      * @return Name des View-Templates ("index")
      */
     @GetMapping("/")
-    public String index(@RequestParam(value = "nameFilter", required = false) String filter, Model model) {
-        model.addAttribute("seile", seilService.getSeileGefiltert(filter));
-        model.addAttribute("newSeil", new Seil());
-        model.addAttribute("filter", filter);
-        return "index";
-    }
+    public String index(@RequestParam(value = "nameFilter", required = false) String nameFilter,
+                        @RequestParam(value = "jahrFilter", required = false) Integer jahrFilter,
+                        Model model) {
 
-    @GetMapping("/filterByJahr")
-    public String filterByJahr(@RequestParam(value = "jahrFilter", required = false) Integer jahr, Model model) {
-        model.addAttribute("seile", seilService.getSeileNachJahr(jahr));
+        model.addAttribute("seile", seilService.getSeileGefiltert(nameFilter, jahrFilter));
         model.addAttribute("newSeil", new Seil());
-        model.addAttribute("jahrFilter", jahr);
+        model.addAttribute("filter", nameFilter);
+        model.addAttribute("jahrFilter", jahrFilter);
         return "index";
     }
 

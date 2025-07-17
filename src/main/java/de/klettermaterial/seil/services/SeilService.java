@@ -6,6 +6,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Service-Klasse für die Logik.
@@ -83,11 +84,15 @@ public class SeilService {
         return seil;
     }
 
-    public List<Seil> getSeileGefiltert(String nameFilter) {
-        if (nameFilter == null) {
-            return seilRepository.findAllByOrderByAblaufdatum();
+    public List<Seil> getSeileGefiltert(String nameFilter, String jahrFilter) {
+        List<Seil> seile = seilRepository.findAllByOrderByAblaufdatum();
+
+        if (nameFilter != null) {
+          seile = seile.stream()
+                  .filter(x -> x.getName().toLowerCase().contains(nameFilter.toLowerCase()))
+                  .toList();
         } else {
-            return seilRepository.findByNameContainingIgnoreCaseOrderByAblaufdatum(nameFilter.trim());
+
         }
     }
 
