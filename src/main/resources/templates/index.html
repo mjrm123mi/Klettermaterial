@@ -94,9 +94,11 @@
         <input type="text" th:field="*{name}" required />
     </div>
 
-    <div th:if="${seilNameFehler}">
-        <p th:text="${seilNameFehler}" style="color: red;"></p>
+    <div th:if="${fehler}" style="color: red;">
+        <div th:each="f : ${fehler}" th:text="${f}"></div>
     </div>
+
+
 
     <div>
         <label>Herstellungsdatum</label>

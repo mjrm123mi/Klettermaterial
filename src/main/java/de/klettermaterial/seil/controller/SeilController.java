@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * Controller für die Startseite.
  * Leitet Anfragen an den IndexService weiter.
@@ -42,16 +44,11 @@ public class SeilController {
      */
     @PostMapping("/add")
     public String neuesSeilHinzufugen(@ModelAttribute Seil newSeil, Model model) {
-        if (newSeil.getName().trim().isEmpty()) {
+        List<String> fehler = seilService.validiereSeil(newSeil);
+        if (!fehler.isEmpty()) {
             model.addAttribute("seile", seilService.getAlleSeile());
             model.addAttribute("newSeil", newSeil);
-            model.addAttribute("seilNameFehler", "Der Name darf nicht leer oder nur aus Leerzeichen bestehen.");
-            return "index";
-        }
-        if (newSeil.getHerstellungsdatum().isAfter(newSeil.getAblaufdatum())) {
-            model.addAttribute("seile", seilService.getAlleSeile());
-            model.addAttribute("newSeil", newSeil);
-            model.addAttribute("datumFehler", "Das Ablaufdatum muss nach dem Herstellungsdatum sein.");
+            model.addAttribute("fehler", fehler);
             return "index";
         }
         seilService.neuesSeilHinzufuegen(newSeil);

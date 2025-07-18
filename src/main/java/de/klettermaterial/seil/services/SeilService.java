@@ -5,6 +5,7 @@ import de.klettermaterial.seil.repository.SeilRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -93,5 +94,16 @@ public class SeilService {
                     .toList();
         }
        return seile;
+    }
+
+    public List<String> validiereSeil(Seil seil) {
+        List<String> fehler = new ArrayList<>();
+        if (seil.getName().trim().isEmpty()) {
+            fehler.add("Der Name darf nicht leer oder nur aus Leerzeichen bestehen.");
+        }
+        if (seil.getHerstellungsdatum().isAfter(seil.getAblaufdatum())) {
+            fehler.add("Das Ablaufdatum muss nach dem Herstellungsdatum sein.");
+        }
+        return fehler;
     }
 }
