@@ -9,12 +9,12 @@
 
 <body>
 
-<div class="form-container">
+<div class="formularContainer">
     <p> Datenbank mit Beispieldaten befuellen:</p>
     <form>   <button type="button" onclick="location.href='/initdb'">befuellen</button> </form>
 </div>
 
-<div class="form-container">
+<div class="formularContainer">
     <p> Info: </p>
     <p> Ein Seil darf maximal 10 Jahre genutzt werden.
         Bei 10 Abnutzungspunkten wird 1 Jahr Lebensdauer vom Seil abgezogen.
@@ -23,10 +23,10 @@
     </p>
 </div>
 
-<div class="form-container">
+<div class="formularContainer">
     <p> Hier kannst du Kletterseile nach Name filtern:</p>
     <form>
-        <input type="text" name="nameFilter" th:value="${filter}">
+        <input type="text" name="nameFilter" th:value="${nameFilter}">
         <button type="submit">Filtern</button>
     </form>
 
@@ -44,7 +44,7 @@
 </div>
 
 
-<div class="form-container">
+<div class="formularContainer">
 <p> Hier sind alle Kletterseile: </p>
 <table>
     <thead>
@@ -86,7 +86,7 @@
 </table>
 </div>
 
-<div class="form-container">
+<div class="formularContainer">
 <p> Hier kannst du ein Seil hinzufügen: </p>
 <form th:action="@{/add}" th:object="${newSeil}" method="post">
     <div>

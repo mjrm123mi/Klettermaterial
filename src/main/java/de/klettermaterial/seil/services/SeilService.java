@@ -74,6 +74,11 @@ public class SeilService {
         return seil;
     }
 
+    /**
+    getSeileGefiltert filtert alle Seile raus die z.b. nicht Petzl heißen
+    oder die z.b. nicht dem Herstellungsjahr 2020 entsrpechen.
+     Anschließend werden alle übrig gebliebenen Seile zurück gegeben.
+     */
     public List<Seil> getSeileGefiltert(String nameFilter, Integer herstellungsJahrFilter) {
         List<Seil> seile = seilRepository.findAllByOrderByAblaufdatum();
         if (nameFilter != null) {

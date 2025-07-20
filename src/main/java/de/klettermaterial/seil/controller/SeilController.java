@@ -30,10 +30,10 @@ public class SeilController {
 
         List<Seil> alleSeile = seilService.getSeileGefiltert(nameFilter, herstellungsJahrFilter);
         model.addAttribute("seile", alleSeile);
+        model.addAttribute("nameFilter", nameFilter); //Simond wird noch weiter angezeigt
+        model.addAttribute("herstellungsJahrFilter", herstellungsJahrFilter); //2020
 
         model.addAttribute("newSeil", new Seil());
-        model.addAttribute("filter", nameFilter);
-        model.addAttribute("herstellungsJahrFilter", herstellungsJahrFilter);
         return "index";
     }
 
