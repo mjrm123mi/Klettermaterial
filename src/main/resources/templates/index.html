@@ -94,8 +94,8 @@
         <input type="text" th:field="*{name}" required />
     </div>
 
-    <div th:if="${fehler}" style="color: red;">
-        <div th:each="f : ${fehler}" th:text="${f}"></div>
+    <div th:if="${fehlerListe}" style="color: red;">
+        <div th:each="fehler : ${fehlerListe}" th:text="${fehler}"></div>
     </div>
 
 

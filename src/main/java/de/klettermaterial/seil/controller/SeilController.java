@@ -27,7 +27,10 @@ public class SeilController {
     public String index(@RequestParam(value = "nameFilter", required = false) String nameFilter,
                         @RequestParam(value = "herstellungsJahrFilter", required = false) Integer herstellungsJahrFilter,
                         Model model) {
-        model.addAttribute("seile", seilService.getSeileGefiltert(nameFilter, herstellungsJahrFilter));
+
+        List<Seil> alleSeile = seilService.getSeileGefiltert(nameFilter, herstellungsJahrFilter);
+        model.addAttribute("seile", alleSeile);
+
         model.addAttribute("newSeil", new Seil());
         model.addAttribute("filter", nameFilter);
         model.addAttribute("herstellungsJahrFilter", herstellungsJahrFilter);
@@ -42,11 +45,11 @@ public class SeilController {
      */
     @PostMapping("/add")
     public String neuesSeilHinzufugen(@ModelAttribute Seil newSeil, Model model) {
-        List<String> fehler = seilService.validiereSeil(newSeil);
-        if (!fehler.isEmpty()) {
+        List<String> fehlerListe = seilService.validiereSeil(newSeil);
+        if (!fehlerListe.isEmpty()) {
             model.addAttribute("seile", seilService.getAlleSeile());
             model.addAttribute("newSeil", newSeil);
-            model.addAttribute("fehler", fehler);
+            model.addAttribute("fehlerListe", fehlerListe);
             return "index";
         }
         seilService.neuesSeilHinzufuegen(newSeil);
@@ -80,15 +83,10 @@ public class SeilController {
 
     @PostMapping("/update")
     public String seilBearbeiten(@ModelAttribute Seil seil, Model model) {
-        if (seil.getName().trim().isEmpty()) {
-            model.addAttribute("seile", seilService.getAlleSeile());
+        List<String> fehlerListe = seilService.validiereSeil(seil);
+        if (!fehlerListe.isEmpty()) {
             model.addAttribute("seilBearbeiten", seil);
-            model.addAttribute("nameFehler", "Der Name darf nicht leer oder nur aus Leerzeichen bestehen.");
-            return "bearbeiten";
-        }
-        if (seil.getHerstellungsdatum().isAfter(seil.getAblaufdatum())) {
-            model.addAttribute("seilBearbeiten", seil);
-            model.addAttribute("datumFehler", "Das Ablaufdatum muss nach dem Herstellungsdatum liegen.");
+            model.addAttribute("fehlerListe", fehlerListe);
             return "bearbeiten";
         }
         seilService.seilAktualisieren(seil);

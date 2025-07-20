@@ -25,7 +25,6 @@ public class SeilService {
      * @param newSeil Das zu speichernde Seil
      */
     public void neuesSeilHinzufuegen(Seil newSeil) {
-
         seilRepository.save(newSeil);
     }
 
@@ -53,13 +52,7 @@ public class SeilService {
      * @param bearbeitetesSeil das bearbeitete Seil-Objekt mit neuen Werten
      */
     public void seilAktualisieren(Seil bearbeitetesSeil) {
-        Seil original = seilRepository.findById(bearbeitetesSeil.getId())
-                .orElseThrow(() -> new RuntimeException("Seil nicht gefunden"));
-        original.setName(bearbeitetesSeil.getName());
-        original.setHerstellungsdatum(bearbeitetesSeil.getHerstellungsdatum());
-        original.setAblaufdatum(bearbeitetesSeil.getAblaufdatum());
-        original.setAbnutzungspunkte(bearbeitetesSeil.getAbnutzungspunkte());
-        seilRepository.save(original);
+        seilRepository.save(bearbeitetesSeil);
     }
 
     public List<Seil> getAlleSeile() {

@@ -20,8 +20,8 @@
             <input type="text" th:field="*{name}" required/>
         </div>
 
-        <div th:if="${nameFehler}">
-            <p th:text="${nameFehler}" style="color: red;"></p>
+        <div th:if="${fehlerListe}" style="color: red;">
+            <div th:each="fehler : ${fehlerListe}" th:text="${fehler}"></div>
         </div>
 
         <div>
@@ -35,10 +35,6 @@
         <div>
             <label>Abnutzungspunkte</label>
             <input type="number"  th:field="*{abnutzungspunkte}" required/>
-        </div>
-
-        <div th:if="${datumFehler}">
-            <p th:text="${datumFehler}" style="color: red;"></p>
         </div>
 
         <button type="submit">Bearbeiten</button>
