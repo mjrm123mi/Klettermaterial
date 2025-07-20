@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 /**
@@ -28,7 +27,6 @@ public class SeilController {
     public String index(@RequestParam(value = "nameFilter", required = false) String nameFilter,
                         @RequestParam(value = "herstellungsJahrFilter", required = false) Integer herstellungsJahrFilter,
                         Model model) {
-
         model.addAttribute("seile", seilService.getSeileGefiltert(nameFilter, herstellungsJahrFilter));
         model.addAttribute("newSeil", new Seil());
         model.addAttribute("filter", nameFilter);
