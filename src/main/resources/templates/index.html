@@ -32,7 +32,7 @@
 
     <p> Hier kannst du Kletterseile nach Herstellungsjahr filtern:</p>
   <form>
-        <input type="number" name="herstellungsJahrFilter" min="1900" max="2200" th:value="${herstellungsJahrFilter}">
+        <input type="number" name="herstellungsJahrFilter" th:value="${herstellungsJahrFilter}">
         <button type="submit">Filtern</button>
     </form>
 
@@ -96,11 +96,11 @@
 
     <div>
         <label>Herstellungsdatum</label>
-        <input type="date" th:field="*{herstellungsdatum}" required min="1900-01-01"/>
+        <input type="date" th:field="*{herstellungsdatum}" required />
     </div>
     <div>
         <label>Ablaufdatum</label>
-        <input type="date" th:field="*{ablaufdatum}" required min="1900-01-02"/>
+        <input type="date" th:field="*{ablaufdatum}" required />
     </div>
     <div>
         <label>Abnutzungspunkte</label>

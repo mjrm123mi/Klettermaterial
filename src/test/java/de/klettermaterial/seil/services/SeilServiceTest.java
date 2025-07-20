@@ -19,6 +19,9 @@ class SeilServiceTest {
         seilService = new SeilService(seilRepositoryMock);
     }
 
+    /**
+     * Testet ob die save Methode einmal aufegerufen wurde
+     */
     @Test
     void neuesSeilHinzufuegen() {
         Seil seil = new Seil("TestseilMaryam", LocalDate.of(2020, 1, 1) ,LocalDate.of(2030,1,1),0);
