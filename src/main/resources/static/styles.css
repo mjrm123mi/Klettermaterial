@@ -17,7 +17,7 @@ td, th {
     text-align: center;
 }
 
-td .zahlenblock {
+td .rechtsbuendig {
     display: inline-block;
     min-width: 2ch;
     text-align: right;

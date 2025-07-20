@@ -38,7 +38,6 @@
 
     <form>
         <br>
-
         <button type="button" onclick="location.href='/'">zurücksetzen</button>
     </form>
 </div>
@@ -60,17 +59,14 @@
     <tbody>
         <tr th:each="seil : ${seile}"
             th:classappend="${seil.abgelaufen} ? 'gewarnt' : ''">
-            <td>
-                <span th:text="${seil.name}"></span>
-                <span th:if="${seil.abgelaufen}"></span>
+            <td th:text="${seil.name}"></td>
 
             <td th:text="${#temporals.format(seil.herstellungsdatum, 'yyyy-MM-dd')}"></td>
             <td th:text="${#temporals.format(seil.ablaufdatum, 'yyyy-MM-dd')}"></td>
 
             <td>
-                <span class="zahlenblock" th:text="${seil.abnutzungspunkte}"></span>
+                <span class="rechtsbuendig" th:text="${seil.abnutzungspunkte}"></span>
             </td>
-
 
             <td>
                 <a th:href="@{/bearbeiten(id=${seil.id})}"> <i class="bi bi-wrench"></i> </a>
@@ -98,8 +94,6 @@
         <div th:each="fehler : ${fehlerListe}" th:text="${fehler}"></div>
     </div>
 
-
-
     <div>
         <label>Herstellungsdatum</label>
         <input type="date" th:field="*{herstellungsdatum}" required min="1900-01-01"/>
@@ -111,10 +105,6 @@
     <div>
         <label>Abnutzungspunkte</label>
         <input type="number" th:field="*{abnutzungspunkte}" required />
-    </div>
-
-    <div th:if="${datumFehler}">
-        <p th:text="${datumFehler}" style="color: red;"></p>
     </div>
 
     <button type="submit">Speichern</button>
