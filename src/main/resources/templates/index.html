@@ -8,7 +8,6 @@
 </head>
 
 <body>
-
 <div class="formularContainer">
     <p> Datenbank mit Beispieldaten befuellen:</p>
     <form>   <button type="button" onclick="location.href='/initdb'">befuellen</button> </form>
@@ -42,7 +41,6 @@
     </form>
 </div>
 
-
 <div class="formularContainer">
 <p> Hier sind alle Kletterseile: </p>
 <table>
@@ -60,23 +58,17 @@
         <tr th:each="seil : ${seile}"
             th:classappend="${seil.abgelaufen} ? 'gewarnt' : ''">
             <td th:text="${seil.name}"></td>
-
             <td th:text="${#temporals.format(seil.herstellungsdatum, 'yyyy-MM-dd')}"></td>
             <td th:text="${#temporals.format(seil.ablaufdatum, 'yyyy-MM-dd')}"></td>
-
             <td>
                 <span class="rechtsbuendig" th:text="${seil.abnutzungspunkte}"></span>
             </td>
-
             <td>
                 <a th:href="@{/bearbeiten(id=${seil.id})}"> <i class="bi bi-wrench"></i> </a>
             </td>
-
             <td>
                 <a th:href="@{/loeschen(id=${seil.id})}"> <i class="bi bi-trash"></i> </a>
             </td>
-
-
         </tr>
     </tbody>
 </table>
@@ -93,7 +85,6 @@
     <div th:if="${fehlerListe}" style="color: red;">
         <div th:each="fehler : ${fehlerListe}" th:text="${fehler}"></div>
     </div>
-
     <div>
         <label>Herstellungsdatum</label>
         <input type="date" th:field="*{herstellungsdatum}" required />
@@ -106,7 +97,6 @@
         <label>Abnutzungspunkte</label>
         <input type="number" th:field="*{abnutzungspunkte}" required />
     </div>
-
     <button type="submit">Speichern</button>
 </form>
 </div>

@@ -97,16 +97,14 @@ public class SeilService {
     public List<String> validiereSeil(Seil seil) {
         List<String> fehler = new ArrayList<>();
         if (seil.getName().trim().isEmpty()) {
-            fehler.add("Der Name darf nicht leer oder nur aus Leerzeichen bestehen.");
+            fehler.add("Der Name darf nicht leer sein oder nur aus Leerzeichen bestehen.");
         }
         if (!seil.getAblaufdatum().isAfter(seil.getHerstellungsdatum())) {
             fehler.add("Das Ablaufdatum muss nach dem Herstellungsdatum sein.");
         }
+
         if(seil.getHerstellungsdatum().isBefore(LocalDate.of(1900,01,01))){
-            fehler.add("Das Herstellungsdatum darf nicht vor 1900 sein.");
-        }
-        if(seil.getAblaufdatum().isAfter(LocalDate.of(2200,01,01))){
-            fehler.add("Das Ablaufdatum darf nicht nach 2200 sein.");
+            fehler.add("Das Herstellungsdatum darf nicht vor 01.01.1900 sein.");
         }
         if(seil.getAblaufdatum().isBefore(LocalDate.of(1900,01,02))){
             fehler.add("Das Ablaufdatum darf nicht vor 02.01.1900 sein.");
